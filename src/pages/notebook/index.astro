@@ -20,16 +20,18 @@ const posts: { href: string; title: string; tags: string }[] = [
 ];
 ---
 <Layout title="words" active="notebook">
-  <section class="page-head">
-    <h1>Notebook</h1>
-    <p class="lede">Notes, write-ups, and points of view. From the smallest observation to writing that sits next to photographs.</p>
-  </section>
-  <div class="note-list">
-    {posts.map((p) => (
-      <a class="note-item" href={p.href}>
-        <span class="note-title">{p.title}</span>
-        <span class="tags">{p.tags}</span>
-      </a>
-    ))}
+  <div class="notebook-page">
+    <section class="page-head">
+      <h1>Notebook</h1>
+      <p class="lede">Notes, write-ups, and points of view. From the smallest observation to writing that sits next to photographs.</p>
+    </section>
+    <div class="note-list">
+      {posts.map((p) => (
+        <a class="note-item" href={p.href}>
+          <span class="note-title">{p.title}</span>
+          <span class="tags">{p.tags}</span>
+        </a>
+      ))}
+    </div>
   </div>
 </Layout>

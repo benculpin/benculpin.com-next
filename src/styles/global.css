@@ -716,6 +716,38 @@ p { margin: 0 0 1em; }
   flex: 0 0 auto;
 }
 
+.notebook-page {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+.notebook-page .page-head,
+.notebook-page .note-list {
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.notebook-page .page-head {
+  padding-top: 0;
+  padding-bottom: 28px;
+}
+.notebook-page .note-list {
+  padding-top: 8px;
+  padding-bottom: 0;
+}
+@media (max-width: 600px) {
+  .note-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .note-item .tags {
+    margin: 0;
+    text-align: left;
+  }
+}
+
 /* Article */
 .article-hero {
   background: var(--pale);
