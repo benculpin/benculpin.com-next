@@ -910,6 +910,12 @@ p { margin: 0 0 1em; }
 .podcast-body > p {
   max-width: var(--measure);
 }
+.podcast-photo {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  margin: 0 0 36px;
+}
 .podcast-door {
   margin-top: 28px;
 }
