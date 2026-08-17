@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { films, filmIds } from '../../data/films';
+---
+<Layout title="Films" active="films">
+  <section class="page-head">
+    <h1>Films</h1>
+    <p class="lede">Creations I've crafted with love over a much longer time frame.</p>
+  </section>
+  <div class="film-grid">
+    {films.map((film) => (
+      <a class="film-card" href={film.href}>
+        <img src={film.poster} alt="" width="1280" height="720" />
+        <h2>{film.title}</h2>
+        <p>{film.lede}</p>
+      </a>
+    ))}
+  </div>
+  <script is:inline define:vars={{ filmIds }}>
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash && filmIds.includes(hash)) {
+      window.location.replace('/films/' + hash);
+    }
+  </script>
+</Layout>

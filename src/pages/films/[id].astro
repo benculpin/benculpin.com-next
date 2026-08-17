@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { films, getAdjacentFilms, type Film } from '../../data/films';
+
+export function getStaticPaths() {
+  return films.map((film) => ({
+    params: { id: film.id },
+    props: { film },
+  }));
+}
+
+interface Props {
+  film: Film;
+}
+
+const { film } = Astro.props;
+const { prev, next } = getAdjacentFilms(film.id);
+---
+<Layout title={film.title} active="films" description={film.lede} image={film.poster}>
+  <section class="page-head">
+    <h1>{film.title}</h1>
+    <p class="lede">{film.lede}</p>
+  </section>
+  <div class="film">
+    <div class="film-embed">
+      <iframe
+        src={`https://www.youtube.com/embed/${film.youtube}?rel=0`}
+        title={film.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      />
+    </div>
+    {(prev || next) && (
+      <nav class="film-adjacent" aria-label="Other films">
+        {prev ? <a href={prev.href}>{prev.title}</a> : <span></span>}
+        {next ? <a href={next.href}>{next.title}</a> : <span></span>}
+      </nav>
+    )}
+  </div>
+</Layout>
