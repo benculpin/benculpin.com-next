@@ -27,4 +27,4 @@ The About form currently posts to a hash stub. Wire Formspree in src/pages/about
 
 ## Paths
 
-/  /about  /notebook  /notebook/{slug}  /home  /films  /photography/nuance-of-experience
+/  /about  /notebook  /notebook/{slug}  /photography  /photography/{slug}  /films  /home (redirects to /photography)

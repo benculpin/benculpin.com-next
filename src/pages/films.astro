@@ -14,9 +14,15 @@ const films = [
   <section class="page-head">
     <h1>Films</h1>
     <p class="lede">Creations I've crafted with love over a much longer time frame.</p>
+    <ul class="film-contents">
+      {films.map((f) => (
+        <li><a href={`#${f.id}`}>{f.title}</a></li>
+      ))}
+    </ul>
   </section>
   {films.map((f) => (
     <section class="film" id={f.id}>
+      <h2>{f.title}</h2>
       <div class="film-embed">
         <iframe
           src={`https://www.youtube.com/embed/${f.youtube}?rel=0`}
@@ -29,7 +35,7 @@ const films = [
   ))}
   <div class="center-cta btn-row" style="justify-content:center; padding-top: 12px;">
     <a class="btn" href="/notebook">Words</a>
-    <a class="btn" href="/home">Photography</a>
+    <a class="btn" href="/photography">Photography</a>
     <a class="btn" href="/about">About</a>
   </div>
 </Layout>

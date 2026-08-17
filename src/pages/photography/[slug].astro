@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import { collections, type Collection } from '../../data/photography';
+
+export function getStaticPaths() {
+  return collections.map((collection) => ({
+    params: { slug: collection.slug },
+    props: { collection },
+  }));
+}
+
+interface Props {
+  collection: Collection;
+}
+
+const { collection } = Astro.props;
+const intro = collection.intro ?? collection.lede;
+---
+<Layout title={collection.title} active="photography">
+  <section class="page-head">
+    <h1>{collection.title}</h1>
+    {intro && <p>{intro}</p>}
+  </section>
+  <div class="project-grid">
+    {collection.images.map((img) => (
+      <button type="button" class="lb-open" data-full={img.src}>
+        <img src={img.src} alt={img.alt} />
+      </button>
+    ))}
+  </div>
+  {collection.quote && (
+    <header
+      class="quote-band"
+      style={`background-image: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)), url('${collection.quote.background}');`}
+    >
+      <p>
+        {collection.quote.lines[0]}<br />
+        {collection.quote.lines[1]}
+      </p>
+    </header>
+  )}
+  <Lightbox />
+</Layout>

@@ -23,7 +23,7 @@
 
   document.querySelectorAll('.lb-open').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const parent = btn.closest('.mosaic, .nuance-grid, .gallery') || document;
+      const parent = btn.closest('.mosaic, .nuance-grid, .project-grid, .gallery') || document;
       group = Array.from(parent.querySelectorAll('.lb-open'));
       show(group.indexOf(btn));
     });

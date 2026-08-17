@@ -26,15 +26,10 @@ const posts = [
   </section>
   <div class="note-list">
     {posts.map((p) => (
-      <div class="note-item">
-        <a href={p.href}>{p.title}</a>
-        <div class="tags">{p.tags}</div>
-      </div>
+      <a class="note-item" href={p.href}>
+        <span class="note-title">{p.title}</span>
+        <span class="tags">{p.tags}</span>
+      </a>
     ))}
-  </div>
-  <div class="center-cta btn-row" style="justify-content:center;">
-    <a class="btn" href="/home">Photography</a>
-    <a class="btn" href="/films">Films</a>
-    <a class="btn" href="/about">About</a>
   </div>
 </Layout>
