@@ -15,6 +15,8 @@ export type Collection = {
    * Photography stays pictures; the words live at /notebook/{notebook}.
    */
   notebook?: string;
+  /** Opening line from that note, shown after the pictures. */
+  notePreview?: string;
   cover: string;
   href: string;
   images: Photo[];
@@ -44,6 +46,7 @@ export const collections: Collection[] = [
     title: 'Nuance of Experience',
     lede: "Pushing the limits of an iPhone while also exploring the nuance of what's really going on.",
     notebook: 'nuance-of-experience',
+    notePreview: "What's stirring within, what's coming straight at you from another person or place; or even what emotional artefacts stay with you and take on a life of their own?",
     cover: '/images/photography/nuance-hero.jpg',
     href: '/photography/nuance-of-experience',
     images: nuanceFiles.map((name) => ({

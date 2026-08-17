@@ -22,9 +22,6 @@ const notebookHref = collection.notebook ? `/notebook/${collection.notebook}` : 
   <section class="page-head">
     <h1>{collection.title}</h1>
     {intro && !notebookHref && <p>{intro}</p>}
-    {notebookHref && (
-      <p class="companion"><a href={notebookHref}>Write-up in the notebook</a></p>
-    )}
   </section>
   <div class="project-grid">
     {collection.images.map((img) => (
@@ -43,6 +40,12 @@ const notebookHref = collection.notebook ? `/notebook/${collection.notebook}` : 
         {collection.quote.lines[1]}
       </p>
     </header>
+  )}
+  {notebookHref && (
+    <aside class="note-preview">
+      {collection.notePreview && <p>{collection.notePreview}</p>}
+      <p><a href={notebookHref}>Read the note</a></p>
+    </aside>
   )}
   <Lightbox />
 </Layout>

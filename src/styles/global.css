@@ -819,6 +819,23 @@ p { margin: 0 0 1em; }
   text-underline-offset: 0.18em;
 }
 .companion a:hover { color: var(--black); }
+.note-preview {
+  max-width: var(--page);
+  margin: 56px auto 80px;
+  padding: 0 24px;
+}
+.note-preview p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 36rem;
+  margin: 0 0 0.8em;
+}
+.note-preview a {
+  color: var(--muted);
+  text-underline-offset: 0.18em;
+}
+.note-preview a:hover { color: var(--black); }
 .companion-inline {
   margin: 6px 0 0;
   color: var(--tag);
