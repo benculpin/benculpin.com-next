@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const research = [
+  { title: 'Discussion Guides', body: 'Design a dialogue that flows, opens people up, and keeps you on track and free to explore.', img: '/images/about/discussion-guides.jpg' },
+  { title: 'Interviews', body: "Talk to people in a way where they reveal truths they didn't even know they had.", img: '/images/about/interviews.jpg' },
+  { title: 'Deep Dive Immersions', body: 'Go out into the world and experience the life of the people you serve or dedicate time to.', img: '/images/about/immersions.jpg' },
+  { title: 'Film & Photography', body: 'Capture visual artefacts from time spent doing research in the field.', img: '/images/about/film-photo.jpg' },
+  { title: 'Desk Research', body: 'Complement your efforts "out there" with smart investigation online and elsewhere.', img: '/images/about/desk-research.jpg' },
+  { title: 'Reporting', body: 'Play back what you did and discovered, and do it in a way that moves people.', img: '/images/about/reporting.jpg' },
+];
+
+const strategy = [
+  { title: 'Creative Briefs', body: 'Make a jump on where to go next, who with, and in what manner.', img: '/images/about/creative-briefs.jpg' },
+  { title: 'People Profiling', body: 'Peel back and reveal your audience, user, customer, or consumer. People.', img: '/images/about/people-profiling.jpg' },
+  { title: 'Brand Positionings', body: 'Establish strongly justified and creative ways forward for your brand.', img: '/images/about/brand-positionings.jpg' },
+  { title: 'Manifestos', body: 'Lay down some poetry to rally your peoples.', img: '/images/about/manifestos.jpg' },
+  { title: 'Naming & Taglines', body: 'Reinvent or start from zero, decide on what you are called, and how you call upon others.', img: '/images/about/taglines.jpg' },
+  { title: 'Brand Books', body: 'Put all the rules together in one wonderful place for you and your team to live by.', img: '/images/about/brand-books.jpg' },
+  { title: 'Cultural Alignment', body: 'Make sure everyone is on board, invested personally, and working towards the same goal.', img: '/images/about/cultural-alignment.jpg' },
+  { title: 'Presentations', body: 'Pitch or play back everything that really matters.', img: '/images/about/presentations.jpg' },
+  { title: 'Visual Strategic Stories', body: 'Tell stories that travel with words, photography, and film.', img: '/images/about/visual-stories.jpg' },
+];
+
+const logos = [
+  { src: '/images/about/logo-nike.png', alt: 'Nike' },
+  { src: '/images/about/logo-huawei.png', alt: 'Huawei' },
+  { src: '/images/about/logo-tesla.png', alt: 'Tesla' },
+  { src: '/images/about/logo-emirates.png', alt: 'Emirates' },
+  { src: '/images/about/logo-idh.jpeg', alt: 'IDH' },
+  { src: '/images/about/logo-vans.png', alt: 'Vans' },
+];
+---
+<Layout
+  title="About"
+  active="about"
+  description="I'm an Amsterdam based Qualitative Researcher and Strategist who seeks the heart-felt perspective."
+  image="/images/about/profile.jpg"
+>
+  <section class="page-head" id="about-top">
+    <h1>About</h1>
+    <p>
+      I am a researcher, strategist, and documentarian. CV and case studies can be found
+      <a href="https://drive.google.com/file/d/1E0UvrLqd9Nw9O6z6KIwy-ewdUo8w1zpV/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><strong>here</strong></a>.
+    </p>
+  </section>
+
+  <section class="feature" id="feature-section">
+    <img src="/images/about/profile.jpg" alt="Ben Culpin seated in an armchair" />
+    <div>
+      <h2>Heart-felt perspective</h2>
+      <p>
+        My disciplines centre around an innate need for perspective, a sensitivity to the world, and a desire to be kind to myself and others. I seek the heart-felt perspective.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#services-hero">Read on</a>
+        <a class="btn" href="#contact-form">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-logos">
+    <div class="quote-logos-inner">
+      <div class="quote-card">
+        <p class="q">“He's one of our favourites! We love working with him and looking forward to a continued collaboration!”</p>
+        <div class="quote-who">
+          <img src="/images/about/jason.jpg" alt="Jason Fulton" />
+          <div>Jason Fulton<br />This Memento - Amsterdam</div>
+        </div>
+      </div>
+      <div class="logo-grid">
+        {logos.map((l) => <img src={l.src} alt={l.alt} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="jam" id="services-hero" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/my-jam.jpg');">
+    <div>
+      <h1>My Jam</h1>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn" href="#research-services">Research</a>
+        <a class="btn" href="#strategy-services">Strategy</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section" id="research-services">
+    <h2>Research</h2>
+    <div class="cards">
+      {research.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cards-section" id="strategy-services">
+    <h2>Strategy</h2>
+    <div class="cards">
+      {strategy.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="contact" id="contact-form">
+    <div class="contact-inner">
+      <h2>Does the spirit move you?</h2>
+      <p>Please get in touch.</p>
+      <p class="hint"><em>Fields marked with an asterisk (*) are required.</em></p>
+      <form action="#" method="post">
+        <div class="form-grid">
+          <div>
+            <label for="First-Name">First name *</label>
+            <input id="First-Name" name="First-Name" type="text" required />
+          </div>
+          <div>
+            <label for="Last-Name">Last name *</label>
+            <input id="Last-Name" name="Last-Name" type="text" required />
+          </div>
+          <div>
+            <label for="Email">Email *</label>
+            <input id="Email" name="Email" type="email" required />
+          </div>
+          <div>
+            <label for="Contact-Phone-Number">Phone number</label>
+            <input id="Contact-Phone-Number" name="Contact-Phone-Number" type="tel" />
+          </div>
+          <div class="full">
+            <label for="Message">Message</label>
+            <textarea id="Message" name="Message"></textarea>
+          </div>
+        </div>
+        <button class="submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</Layout>

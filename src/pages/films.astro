@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const films = [
+  { id: 'hold-back', youtube: 'A7R6RvkI2cI', title: 'Hold Back: A Perspective From Yoga' },
+  { id: 'a-mothers-love', youtube: '9YyoZzbUEgs', title: "A Mother's Love" },
+  { id: 'Sailing-4000-miles', youtube: '07Z8CXpRfEE', title: 'What Does Sailing 4000 Miles Teach You?' },
+  { id: 'what-is-beauty', youtube: 'u2vittiw3no', title: 'WHAT IS BEAUTY?' },
+  { id: 'the-strangers-project', youtube: 'BpshKSsTP4c', title: 'The Strangers Project' },
+  { id: 'what-is-carnival', youtube: '8OYEe4KCrg4', title: 'O que é Carnaval [What is Carnival]?' },
+];
+---
+<Layout title="Films" active="films">
+  <section class="page-head">
+    <h1>Films</h1>
+    <p class="lede">Creations I've crafted with love over a much longer time frame.</p>
+  </section>
+  {films.map((f) => (
+    <section class="film" id={f.id}>
+      <div class="film-embed">
+        <iframe
+          src={`https://www.youtube.com/embed/${f.youtube}?rel=0`}
+          title={f.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        />
+      </div>
+    </section>
+  ))}
+  <div class="center-cta btn-row" style="justify-content:center; padding-top: 12px;">
+    <a class="btn" href="/notebook">Words</a>
+    <a class="btn" href="/home">Photography</a>
+    <a class="btn" href="/about">About</a>
+  </div>
+</Layout>

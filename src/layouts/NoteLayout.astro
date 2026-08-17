@@ -1,0 +1,31 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+const title = frontmatter.title || 'Notebook';
+const date = frontmatter.pubDate
+  ? new Date(frontmatter.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  : '';
+const cover = frontmatter.cover;
+const stub = frontmatter.stub;
+const subtitle = frontmatter.subtitle;
+---
+<Layout title={title} active="notebook" description={subtitle || title}>
+  <section class="article-hero">
+    <div class="article-hero-inner">
+      <div>
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
+        {date && <p class="date">{date}</p>}
+      </div>
+      {cover && <img src={cover} alt="" />}
+    </div>
+  </section>
+  <article class="article-body">
+    {stub ? (
+      <p class="stub-note">This note is being restored from the live site.</p>
+    ) : (
+      <slot />
+    )}
+  </article>
+</Layout>
