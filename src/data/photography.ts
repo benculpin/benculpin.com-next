@@ -1,3 +1,5 @@
+import { loadFolderSets } from "./load-photo-sets";
+
 export type Photo = {
   src: string;
   alt: string;
@@ -33,14 +35,10 @@ const nuanceFiles = [
 ];
 
 /**
- * Newest first. To add a series later:
- * 1. Put images in public/images/photography/<slug>/
- * 2. Add one object here (cover, title, optional lede, images)
- * 3. If the series has a write-up, set `notebook` to that post's slug
- *    and keep the words in the notebook — do not copy them here.
- * The shared /photography/[slug] page picks it up.
+ * New sets: drop a folder + set.txt in public/images/photography.
+ * See public/images/photography/HOW-TO-ADD-A-SET.txt. Do not add objects here.
  */
-export const collections: Collection[] = [
+const existing: Collection[] = [
   {
     slug: 'nuance-of-experience',
     title: 'Nuance of Experience',
@@ -93,6 +91,10 @@ export const collections: Collection[] = [
     },
   },
 ];
+
+const existingSlugs = new Set(existing.map((c) => c.slug));
+
+export const collections = [...loadFolderSets(existingSlugs), ...existing];
 
 export function getCollection(slug: string | undefined) {
   return collections.find((c) => c.slug === slug);
