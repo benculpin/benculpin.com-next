@@ -10,6 +10,7 @@ const cover = frontmatter.cover;
 const stub = frontmatter.stub;
 const subtitle = frontmatter.subtitle;
 const photography = frontmatter.photography;
+const photoHref = photography ? `/photography/${photography}` : undefined;
 ---
 <Layout title={title} active="notebook" description={subtitle || title}>
   <section class="article-hero">
@@ -18,9 +19,6 @@ const photography = frontmatter.photography;
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
         {date && <p class="date">{date}</p>}
-        {photography && (
-          <p class="companion"><a href={`/photography/${photography}`}>Photographs</a></p>
-        )}
       </div>
       {cover && <img src={cover} alt="" />}
     </div>
@@ -32,4 +30,10 @@ const photography = frontmatter.photography;
       <slot />
     )}
   </article>
+  {photoHref && (
+    <aside class="note-preview">
+      <p>The photographs that sit with this note.</p>
+      <p><a href={photoHref}>See the photographs</a></p>
+    </aside>
+  )}
 </Layout>

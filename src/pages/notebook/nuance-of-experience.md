@@ -33,4 +33,3 @@ Superficially speaking, these are just some holiday snaps from my phone [yep, I'
 
 I'm sharing it here because I believe this act also demonstrates a fundamental of research. As a researcher (and fellow human) it’s an opportunity to tune ourselves to the emotional nuance of what we see before us, what it evokes within, and what stays with us as we go forward.
 
-[Check out these photos that marry with this thinking.](/photography/nuance-of-experience)
