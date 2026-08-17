@@ -35,7 +35,7 @@ export const films: Film[] = [
   {
     id: 'what-is-beauty',
     youtube: 'u2vittiw3no',
-    title: 'WHAT IS BEAUTY?',
+    title: 'What is Beauty',
     lede: 'The question is fundamental.',
     poster: '/images/films/what-is-beauty.jpg',
     href: '/films/what-is-beauty',
