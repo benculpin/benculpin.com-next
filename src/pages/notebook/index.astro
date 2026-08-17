@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const posts = [
+const posts: { href: string; title: string; tags: string; photography?: string }[] = [
   { href: '/notebook/2023--you-made-it-part-ii', title: '2023 -You Made It (Part II)', tags: '#2023' },
   { href: '/notebook/godparent-11-11', title: 'Godparent 11/11', tags: '#children #journal' },
-  { href: '/notebook/nuance-of-experience', title: 'Nuance of Experience', tags: '#personal #research' },
+  { href: '/notebook/nuance-of-experience', title: 'Nuance of Experience', tags: '#personal #research', photography: 'nuance-of-experience' },
   { href: '/notebook/are-you-doing-right-by-you', title: 'Are you doing right by you?', tags: '#note' },
   { href: '/notebook/the-push', title: 'The push', tags: '#note' },
   { href: '/notebook/reassurance-is-futile', title: 'Reassurance is futile', tags: '#note' },
@@ -22,13 +22,14 @@ const posts = [
 <Layout title="words" active="notebook">
   <section class="page-head">
     <h1>Notebook</h1>
-    <p class="lede">Articles of thought. Noting the noteworthy. All things big and small.</p>
+    <p class="lede">Notes, write-ups, and points of view. From the smallest observation to writing that sits next to photographs.</p>
   </section>
   <div class="note-list">
     {posts.map((p) => (
       <a class="note-item" href={p.href}>
         <span class="note-title">{p.title}</span>
         <span class="tags">{p.tags}</span>
+        {p.photography && <span class="note-companion">Also in Photography</span>}
       </a>
     ))}
   </div>

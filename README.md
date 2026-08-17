@@ -1,6 +1,6 @@
 # benculpin.com-next
 
-An exploration fork of the personal site. Same pages, copy, photos, and IA — refined so it reads as a current personal site rather than a Webflow export.
+An exploration fork of the personal site. Same pages, copy, and photos — refined so it reads as a current personal site rather than a Webflow export. Notebook is the aggregator of notes and write-ups; photography stays pictures. A series with a write-up is one work listed in both places.
 
 This is not the live domain. The refund-safe replica remains https://github.com/benculpin/benculpin.com. Do not attach a custom domain or cut over DNS from this repo.
 

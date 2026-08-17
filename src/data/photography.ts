@@ -10,6 +10,11 @@ export type Collection = {
   lede?: string;
   /** Optional project-page intro when it differs from the landing lede. */
   intro?: string;
+  /**
+   * Notebook write-up for this series, when it is the same work.
+   * Photography stays pictures; the words live at /notebook/{notebook}.
+   */
+  notebook?: string;
   cover: string;
   href: string;
   images: Photo[];
@@ -29,6 +34,8 @@ const nuanceFiles = [
  * Newest first. To add a series later:
  * 1. Put images in public/images/photography/<slug>/
  * 2. Add one object here (cover, title, optional lede, images)
+ * 3. If the series has a write-up, set `notebook` to that post's slug
+ *    and keep the words in the notebook — do not copy them here.
  * The shared /photography/[slug] page picks it up.
  */
 export const collections: Collection[] = [
@@ -36,7 +43,7 @@ export const collections: Collection[] = [
     slug: 'nuance-of-experience',
     title: 'Nuance of Experience',
     lede: "Pushing the limits of an iPhone while also exploring the nuance of what's really going on.",
-    intro: 'Testing the limits of a phone. Exploring the emotional range within.',
+    notebook: 'nuance-of-experience',
     cover: '/images/photography/nuance-hero.jpg',
     href: '/photography/nuance-of-experience',
     images: nuanceFiles.map((name) => ({

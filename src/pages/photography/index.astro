@@ -13,6 +13,7 @@ import { collections } from '../../data/photography';
         <div>
           <h2>{c.title}</h2>
           {c.lede && <p>{c.lede}</p>}
+          {c.notebook && <p class="companion-inline">Also in Notebook</p>}
         </div>
       </a>
     ))}

@@ -4,6 +4,7 @@ title: Nuance of Experience
 subtitle: "Have you considered the nuance of what's really going on?"
 pubDate: 2023-03-01
 tags: "#personal #research"
+photography: nuance-of-experience
 cover: /images/notebook/nuance-of-experience/IMG_7090.jpg
 ---
 What's stirring within, what's coming straight at you from another person or place; or even what emotional artefacts stay with you and take on a life of their own?

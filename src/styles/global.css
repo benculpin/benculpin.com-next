@@ -808,3 +808,25 @@ p { margin: 0 0 1em; }
 .lb-nav:hover { opacity: 1; }
 .lb-prev { left: 8px; }
 .lb-next { right: 8px; }
+
+/* Companion links: same work in the other place */
+.companion {
+  margin: 0.7em 0 0;
+  font-size: 0.95rem;
+}
+.companion a {
+  color: var(--muted);
+  text-underline-offset: 0.18em;
+}
+.companion a:hover { color: var(--black); }
+.companion-inline {
+  margin: 6px 0 0;
+  color: var(--tag);
+  font-size: 0.88rem;
+}
+.note-companion {
+  flex-basis: 100%;
+  color: var(--tag);
+  font-size: 0.88rem;
+  margin-top: -2px;
+}

@@ -9,6 +9,7 @@ const date = frontmatter.pubDate
 const cover = frontmatter.cover;
 const stub = frontmatter.stub;
 const subtitle = frontmatter.subtitle;
+const photography = frontmatter.photography;
 ---
 <Layout title={title} active="notebook" description={subtitle || title}>
   <section class="article-hero">
@@ -17,6 +18,9 @@ const subtitle = frontmatter.subtitle;
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
         {date && <p class="date">{date}</p>}
+        {photography && (
+          <p class="companion"><a href={`/photography/${photography}`}>Photographs</a></p>
+        )}
       </div>
       {cover && <img src={cover} alt="" />}
     </div>
