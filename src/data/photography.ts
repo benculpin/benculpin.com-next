@@ -1,3 +1,5 @@
+import { loadFolderSets } from "./load-photo-sets";
+
 export type Photo = {
   src: string;
   alt: string;
@@ -10,6 +12,13 @@ export type Collection = {
   lede?: string;
   /** Optional project-page intro when it differs from the landing lede. */
   intro?: string;
+  /**
+   * Notebook write-up for this series, when it is the same work.
+   * Photography stays pictures; the words live at /notebook/{notebook}.
+   */
+  notebook?: string;
+  /** Opening line from that note, shown after the pictures. */
+  notePreview?: string;
   cover: string;
   href: string;
   images: Photo[];
@@ -26,17 +35,16 @@ const nuanceFiles = [
 ];
 
 /**
- * Newest first. To add a series later:
- * 1. Put images in public/images/photography/<slug>/
- * 2. Add one object here (cover, title, optional lede, images)
- * The shared /photography/[slug] page picks it up.
+ * New sets: drop a folder + set.txt in public/images/photography.
+ * See public/images/photography/HOW-TO-ADD-A-SET.txt. Do not add objects here.
  */
-export const collections: Collection[] = [
+const existing: Collection[] = [
   {
     slug: 'nuance-of-experience',
     title: 'Nuance of Experience',
     lede: "Pushing the limits of an iPhone while also exploring the nuance of what's really going on.",
-    intro: 'Testing the limits of a phone. Exploring the emotional range within.',
+    notebook: 'nuance-of-experience',
+    notePreview: "What's stirring within, what's coming straight at you from another person or place; or even what emotional artefacts stay with you and take on a life of their own?",
     cover: '/images/photography/nuance-hero.jpg',
     href: '/photography/nuance-of-experience',
     images: nuanceFiles.map((name) => ({
@@ -83,6 +91,10 @@ export const collections: Collection[] = [
     },
   },
 ];
+
+const existingSlugs = new Set(existing.map((c) => c.slug));
+
+export const collections = [...loadFolderSets(existingSlugs), ...existing];
 
 export function getCollection(slug: string | undefined) {
   return collections.find((c) => c.slug === slug);

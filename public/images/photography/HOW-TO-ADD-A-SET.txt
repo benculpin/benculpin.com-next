@@ -1,0 +1,39 @@
+How to add a photography set
+============================
+
+You do this in the browser on GitHub. You do not need to edit any code.
+
+1. Open this page in your browser:
+   https://github.com/benculpin/benculpin.com-next
+
+2. Click the folder called public, then images, then photography.
+
+3. Click "Add file" and choose "Create new file".
+   In the name box, type a folder name and a slash, then set.txt.
+   Example: lisbon-2026/set.txt
+   That creates a new folder for the set.
+
+4. In set.txt, type the title on the first line.
+   You can add a short one-liner on the second line if you want.
+   Example:
+     Lisbon
+     Evening light, August 2026
+
+5. Click "Commit changes" (green button) to save set.txt.
+
+6. Go back into your new folder (public/images/photography/lisbon-2026).
+   Click "Add file" and choose "Upload files".
+   Drop your photos in and commit them.
+
+7. If you name one photo cover.jpg, that picture is used on the photography landing page.
+   If you do not, the first photo in the folder is used instead.
+
+That is all. The site will pick up the new set from the folder. Do not edit any TypeScript files.
+
+---
+
+Notes (writing) are separate
+
+A note is a .md file in src/pages/notebook.
+If a note belongs with a gallery, put a link to that gallery at the end of the note.
+Example: [Photographs](/photography/lisbon-2026)

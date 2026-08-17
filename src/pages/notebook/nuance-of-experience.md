@@ -4,6 +4,7 @@ title: Nuance of Experience
 subtitle: "Have you considered the nuance of what's really going on?"
 pubDate: 2023-03-01
 tags: "#personal #research"
+photography: nuance-of-experience
 cover: /images/notebook/nuance-of-experience/IMG_7090.jpg
 ---
 What's stirring within, what's coming straight at you from another person or place; or even what emotional artefacts stay with you and take on a life of their own?
@@ -32,4 +33,3 @@ Superficially speaking, these are just some holiday snaps from my phone [yep, I'
 
 I'm sharing it here because I believe this act also demonstrates a fundamental of research. As a researcher (and fellow human) it’s an opportunity to tune ourselves to the emotional nuance of what we see before us, what it evokes within, and what stays with us as we go forward.
 
-[Check out these photos that marry with this thinking.](/photography/nuance-of-experience)

@@ -16,11 +16,12 @@ interface Props {
 
 const { collection } = Astro.props;
 const intro = collection.intro ?? collection.lede;
+const notebookHref = collection.notebook ? `/notebook/${collection.notebook}` : undefined;
 ---
 <Layout title={collection.title} active="photography">
   <section class="page-head">
     <h1>{collection.title}</h1>
-    {intro && <p>{intro}</p>}
+    {intro && !notebookHref && <p>{intro}</p>}
   </section>
   <div class="project-grid">
     {collection.images.map((img) => (
@@ -39,6 +40,12 @@ const intro = collection.intro ?? collection.lede;
         {collection.quote.lines[1]}
       </p>
     </header>
+  )}
+  {notebookHref && (
+    <aside class="note-preview">
+      {collection.notePreview && <p>{collection.notePreview}</p>}
+      <p><a href={notebookHref}>Read the note</a></p>
+    </aside>
   )}
   <Lightbox />
 </Layout>
