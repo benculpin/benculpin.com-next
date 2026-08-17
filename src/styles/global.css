@@ -900,3 +900,21 @@ p { margin: 0 0 1em; }
   font-size: 0.88rem;
   margin-top: -2px;
 }
+
+/* Podcast */
+.podcast-body {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 8px 24px 80px;
+}
+.podcast-body > p {
+  max-width: var(--measure);
+}
+.podcast-door {
+  margin-top: 28px;
+}
+.podcast-door a {
+  color: var(--muted);
+  text-underline-offset: 0.18em;
+}
+.podcast-door a:hover { color: var(--black); }
