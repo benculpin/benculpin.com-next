@@ -651,15 +651,24 @@ p { margin: 0 0 1em; }
   color: var(--muted);
   text-decoration: none;
   max-width: 46%;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
 }
 .film-adjacent a:last-child {
   margin-left: auto;
   text-align: right;
 }
+.film-adjacent-mark {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.05em;
+  color: var(--black);
+}
 .film-adjacent a:hover {
   color: var(--black);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
+}
+.film-adjacent a:hover .film-adjacent-mark {
+  color: var(--muted);
 }
 
 /* Notebook list */

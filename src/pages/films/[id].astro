@@ -32,8 +32,18 @@ const { prev, next } = getAdjacentFilms(film.id);
     </div>
     {(prev || next) && (
       <nav class="film-adjacent" aria-label="Other films">
-        {prev ? <a href={prev.href}>{prev.title}</a> : <span></span>}
-        {next ? <a href={next.href}>{next.title}</a> : <span></span>}
+        {prev ? (
+          <a href={prev.href} rel="prev">
+            <span class="film-adjacent-mark" aria-hidden="true">&lt;</span>
+            <span>{prev.title}</span>
+          </a>
+        ) : <span></span>}
+        {next ? (
+          <a href={next.href} rel="next">
+            <span>{next.title}</span>
+            <span class="film-adjacent-mark" aria-hidden="true">&gt;</span>
+          </a>
+        ) : <span></span>}
       </nav>
     )}
   </div>
