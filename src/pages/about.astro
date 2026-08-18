@@ -90,7 +90,7 @@ const technology = [
     <div>
       <h1>My Roots</h1>
       <p>
-        Ethnographic research and brand strategy. One is the immersive soak, the other the sharpest articulation. I take it all in, let it stew, then make the jump. It's what considered listener, creative thinker looks like in practice.
+        One is the immersive soak, the other the sharpest articulation.
       </p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn" href="#research-services">Research</a>
@@ -112,6 +112,8 @@ const technology = [
     </div>
   </section>
 
+  <hr class="about-rule" />
+
   <section class="cards-section" id="strategy-services">
     <h2>Strategy</h2>
     <div class="cards">
@@ -124,6 +126,8 @@ const technology = [
       ))}
     </div>
   </section>
+
+  <hr class="about-rule" />
 
   <section class="about-block field-notes">
     <h2>Field Notes</h2>
@@ -150,7 +154,7 @@ const technology = [
 
   <section class="cards-section" id="teams">
     <h2>Teams</h2>
-    <div class="cards">
+    <div class="cards cards-2">
       {teams.map((c) => (
         <div>
           <img src={c.img} alt="" />
@@ -163,7 +167,7 @@ const technology = [
 
   <section class="cards-section" id="technology">
     <h2>Technology</h2>
-    <div class="cards">
+    <div class="cards cards-2">
       {technology.map((c) => (
         <div>
           <img src={c.img} alt="" />
@@ -173,6 +177,8 @@ const technology = [
       ))}
     </div>
   </section>
+
+  <hr class="about-rule" />
 
   <section class="about-block about-close">
     <h2>Does the spirit move you?</h2>
