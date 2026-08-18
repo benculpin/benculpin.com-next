@@ -32,17 +32,17 @@ const logos = [
 ];
 
 const teams = [
-  { title: 'Building a Practice', body: 'Shape a team of researchers around a shared craft and a point of view worth defending.' },
-  { title: 'Coaching', body: 'Help researchers find their own voice, give them room to run, and stand close enough to catch them.' },
-  { title: 'A Place to Belong', body: 'Make a team feel like home. Somewhere people are taken care of, safe to put up a hand and ask for help, and just as safe to jump straight in.' },
-  { title: 'Rituals & Rhythms', body: "Build the systems, rituals, and rhythms that keep a team honest, curious, and generative, always building on each other's ideas. I don't love saying no, so I build systems that say it kindly for me." },
+  { title: 'Building a Practice', body: 'Shape a team of researchers around a shared craft and a point of view worth defending.', img: '/images/about/frontiers/practice.jpg' },
+  { title: 'Coaching', body: 'Help researchers find their own voice, give them room to run, and stand close enough to catch them.', img: '/images/about/frontiers/coaching.jpg' },
+  { title: 'A Place to Belong', body: 'Make a team feel like home. Somewhere people are taken care of, safe to put up a hand and ask for help, and just as safe to jump straight in.', img: '/images/about/frontiers/belong.jpg' },
+  { title: 'Rituals & Rhythms', body: "Build the systems, rituals, and rhythms that keep a team honest, curious, and generative, always building on each other's ideas. I don't love saying no, so I build systems that say it kindly for me.", img: '/images/about/frontiers/rituals.jpg' },
 ];
 
 const technology = [
-  { title: 'AI-Augmented Research', body: 'Hand the heavy lifting to the machines so there is more time for the parts that matter: the head and the heart.' },
-  { title: 'Tooling the Craft', body: 'Build tools, personal and team-wide, that hold on to what matters, so we can be fully present for the moment in front of us.' },
-  { title: 'Synthesis at Scale', body: 'Help a whole team move through mountains of data, transcripts, dashboards, field notes, without losing the goose-bump moments buried inside them.' },
-  { title: 'Human Judgement', body: 'Know where the machine stops and the human begins. Taste, empathy, and the room still belong to us. For now.' },
+  { title: 'AI-Augmented Research', body: 'Hand the heavy lifting to the machines so there is more time for the parts that matter: the head and the heart.', img: '/images/about/frontiers/ai.jpg' },
+  { title: 'Tooling the Craft', body: 'Build tools, personal and team-wide, that hold on to what matters, so we can be fully present for the moment in front of us.', img: '/images/about/frontiers/tooling.jpg' },
+  { title: 'Synthesis at Scale', body: 'Help a whole team move through mountains of data, transcripts, dashboards, field notes, without losing the goose-bump moments buried inside them.', img: '/images/about/frontiers/synthesis.jpg' },
+  { title: 'Human Judgement', body: 'Know where the machine stops and the human begins. Taste, empathy, and the room still belong to us. For now.', img: '/images/about/frontiers/judgement.jpg' },
 ];
 ---
 <Layout
@@ -86,11 +86,17 @@ const technology = [
     </div>
   </section>
 
-  <section class="about-block" id="my-roots">
-    <h2>My Roots</h2>
-    <p>
-      Ethnographic research and brand strategy. One is the immersive soak, the other the sharpest articulation. I take it all in, let it stew, then make the jump. It's what considered listener, creative thinker looks like in practice.
-    </p>
+  <section class="jam" id="my-roots" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/my-jam.jpg');">
+    <div>
+      <h1>My Roots</h1>
+      <p>
+        Ethnographic research and brand strategy. One is the immersive soak, the other the sharpest articulation. I take it all in, let it stew, then make the jump. It's what considered listener, creative thinker looks like in practice.
+      </p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn" href="#research-services">Research</a>
+        <a class="btn" href="#strategy-services">Strategy</a>
+      </div>
+    </div>
   </section>
 
   <section class="cards-section" id="research-services">
@@ -119,12 +125,6 @@ const technology = [
     </div>
   </section>
 
-  <section class="about-block">
-    <p>
-      Much of it gets captured along the way. See <a href="/photography">Photography</a>. See <a href="/film">Film</a>.
-    </p>
-  </section>
-
   <section class="about-block field-notes">
     <h2>Field Notes</h2>
     <ul>
@@ -135,42 +135,48 @@ const technology = [
     </ul>
   </section>
 
-  <section class="about-block frontiers">
-    <h2>My Frontiers</h2>
-    <p>
-      I lead a research team now, with machines in the toolkit. My conviction hasn't moved. In a world ever more weighted towards data, we have to keep grounding ourselves in the real. Data meets reality. People first, always.
-    </p>
-    <h3>Teams</h3>
-    <div class="frontier-grid">
-      {teams.map((c) => (
-        <div class="frontier-card">
-          <h4>{c.title}</h4>
-          <p>{c.body}</p>
-        </div>
-      ))}
+  <section class="jam jam-frontiers" id="my-frontiers" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/frontiers/band.jpg');">
+    <div>
+      <h1>My Frontiers</h1>
+      <p>
+        I lead a research team now, with machines in the toolkit. My conviction hasn't moved. In a world ever more weighted towards data, we have to keep grounding ourselves in the real. Data meets reality. People first, always.
+      </p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn" href="#teams">Teams</a>
+        <a class="btn" href="#technology">Technology</a>
+      </div>
     </div>
-    <h3>Technology</h3>
-    <div class="frontier-grid">
-      {technology.map((c) => (
-        <div class="frontier-card">
-          <h4>{c.title}</h4>
+  </section>
+
+  <section class="cards-section" id="teams">
+    <h2>Teams</h2>
+    <div class="cards">
+      {teams.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
           <p>{c.body}</p>
         </div>
       ))}
     </div>
   </section>
 
-  <section class="about-block now">
-    <h2>Now</h2>
-    <p>
-      Currently rebuilding this website. Slowly making a home, which I'm counting as a creative project. Spending less time on the feeds and more in places I can own, free of the mechanics that have started to feel heavy. The photography will live here, for the people who actually care.
-    </p>
+  <section class="cards-section" id="technology">
+    <h2>Technology</h2>
+    <div class="cards">
+      {technology.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
   </section>
 
   <section class="about-block about-close">
     <h2>Does the spirit move you?</h2>
-    <p>
-      No forms here anymore. Write me at <a href="mailto:benculpin@gmail.com">benculpin@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/benculpin/">LinkedIn</a>. I read everything.
-    </p>
+    <p>Write me at <a href="mailto:benculpin@gmail.com">benculpin@gmail.com</a></p>
+    <p>Find me on <a href="https://www.linkedin.com/in/benculpin/">LinkedIn</a>.</p>
   </section>
 </Layout>
