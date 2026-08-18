@@ -30,18 +30,31 @@ const logos = [
   { src: '/images/about/logo-idh.jpeg', alt: 'IDH' },
   { src: '/images/about/logo-vans.png', alt: 'Vans' },
 ];
+
+const teams = [
+  { title: 'Building a Practice', body: 'Shape a team of researchers around a shared craft and a point of view worth defending.', img: '/images/about/frontiers/practice.jpg' },
+  { title: 'Coaching', body: 'Help researchers find their own voice, give them room to run, and stand close enough to catch them.', img: '/images/about/frontiers/coaching.jpg' },
+  { title: 'A Place to Belong', body: 'Make a team feel like home. Somewhere people are taken care of, safe to put up a hand and ask for help, and just as safe to jump straight in.', img: '/images/about/frontiers/belong.jpg' },
+  { title: 'Rituals & Rhythms', body: "Build the systems, rituals, and rhythms that keep a team honest, curious, and generative, always building on each other's ideas. I don't love saying no, so I build systems that say it kindly for me.", img: '/images/about/frontiers/rituals.jpg' },
+];
+
+const technology = [
+  { title: 'AI-Augmented Research', body: 'Hand the heavy lifting to the machines so there is more time for the parts that matter: the head and the heart.', img: '/images/about/frontiers/ai.jpg' },
+  { title: 'Tooling the Craft', body: 'Build tools, personal and team-wide, that hold on to what matters, so we can be fully present for the moment in front of us.', img: '/images/about/frontiers/tooling.jpg' },
+  { title: 'Synthesis at Scale', body: 'Help a whole team move through mountains of data, transcripts, dashboards, field notes, without losing the goose-bump moments buried inside them.', img: '/images/about/frontiers/synthesis.jpg' },
+  { title: 'Human Judgement', body: 'Know where the machine stops and the human begins. Taste, empathy, and the room still belong to us. For now.', img: '/images/about/frontiers/judgement.jpg' },
+];
 ---
 <Layout
   title="About"
   active="about"
-  description="I'm an Amsterdam based Qualitative Researcher and Strategist who seeks the heart-felt perspective."
+  description="Researcher, strategist, and documentarian. Head of Research at DEPT in Amsterdam."
   image="/images/about/profile.jpg"
 >
   <section class="page-head" id="about-top">
     <h1>About</h1>
     <p>
-      I am a researcher, strategist, and documentarian. CV and case studies can be found
-      <a href="https://drive.google.com/file/d/1E0UvrLqd9Nw9O6z6KIwy-ewdUo8w1zpV/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><strong>here</strong></a>.
+      I am a researcher, strategist, and documentarian. A considered listener and creative thinker. These days I'm also Head of Research at DEPT® in Amsterdam.
     </p>
   </section>
 
@@ -53,8 +66,7 @@ const logos = [
         My disciplines centre around an innate need for perspective, a sensitivity to the world, and a desire to be kind to myself and others. I seek the heart-felt perspective.
       </p>
       <div class="btn-row">
-        <a class="btn" href="#services-hero">Read on</a>
-        <a class="btn" href="#contact-form">Contact</a>
+        <a class="btn" href="#my-roots">Read on</a>
       </div>
     </div>
   </section>
@@ -74,9 +86,12 @@ const logos = [
     </div>
   </section>
 
-  <section class="jam" id="services-hero" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/my-jam.jpg');">
+  <section class="jam" id="my-roots" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/my-jam.jpg');">
     <div>
-      <h1>My Jam</h1>
+      <h1>My Roots</h1>
+      <p>
+        One is the immersive soak, the other the sharpest articulation.
+      </p>
       <div class="btn-row" style="justify-content:center;">
         <a class="btn" href="#research-services">Research</a>
         <a class="btn" href="#strategy-services">Strategy</a>
@@ -97,6 +112,8 @@ const logos = [
     </div>
   </section>
 
+  <hr class="about-rule" />
+
   <section class="cards-section" id="strategy-services">
     <h2>Strategy</h2>
     <div class="cards">
@@ -110,36 +127,64 @@ const logos = [
     </div>
   </section>
 
-  <section class="contact" id="contact-form">
-    <div class="contact-inner">
-      <h2>Does the spirit move you?</h2>
-      <p>Please get in touch.</p>
-      <p class="hint"><em>Fields marked with an asterisk (*) are required.</em></p>
-      <form action="#" method="post">
-        <div class="form-grid">
-          <div>
-            <label for="First-Name">First name *</label>
-            <input id="First-Name" name="First-Name" type="text" required />
-          </div>
-          <div>
-            <label for="Last-Name">Last name *</label>
-            <input id="Last-Name" name="Last-Name" type="text" required />
-          </div>
-          <div>
-            <label for="Email">Email *</label>
-            <input id="Email" name="Email" type="email" required />
-          </div>
-          <div>
-            <label for="Contact-Phone-Number">Phone number</label>
-            <input id="Contact-Phone-Number" name="Contact-Phone-Number" type="tel" />
-          </div>
-          <div class="full">
-            <label for="Message">Message</label>
-            <textarea id="Message" name="Message"></textarea>
-          </div>
-        </div>
-        <button class="submit" type="submit">Submit</button>
-      </form>
+  <hr class="about-rule" />
+
+  <section class="about-block field-notes">
+    <h2>Field Notes</h2>
+    <ul>
+      <li>Ask the question, then take a breath. If nothing comes, take another. The truest things arrive in the second silence.</li>
+      <li>Walk into every room assuming you know nothing. The obvious question is usually the brave one.</li>
+      <li>I'm not a systems person. I build systems so I can stay a people person.</li>
+      <li>If no one was moved, it isn't finished. That goes for the research, the strategy, and the team.</li>
+    </ul>
+  </section>
+
+  <section class="jam jam-frontiers" id="my-frontiers" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/frontiers/band.jpg');">
+    <div>
+      <h1>My Frontiers</h1>
+      <p>
+        I lead a research team now, with machines in the toolkit. My conviction hasn't moved. In a world ever more weighted towards data, we have to keep grounding ourselves in the real. Data meets reality. People first, always.
+      </p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn" href="#teams">Teams</a>
+        <a class="btn" href="#technology">Technology</a>
+      </div>
     </div>
+  </section>
+
+  <section class="cards-section" id="teams">
+    <h2>Teams</h2>
+    <div class="cards cards-2">
+      {teams.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="about-rule" />
+
+  <section class="cards-section" id="technology">
+    <h2>Technology</h2>
+    <div class="cards cards-2">
+      {technology.map((c) => (
+        <div>
+          <img src={c.img} alt="" />
+          <h3>{c.title}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="about-rule" />
+
+  <section class="about-block about-close">
+    <h2>Does the spirit move you?</h2>
+    <p>Write me at <a href="mailto:benculpin@gmail.com">benculpin@gmail.com</a></p>
+    <p>Find me on <a href="https://www.linkedin.com/in/benculpin/">LinkedIn</a>.</p>
   </section>
 </Layout>
