@@ -30,18 +30,31 @@ const logos = [
   { src: '/images/about/logo-idh.jpeg', alt: 'IDH' },
   { src: '/images/about/logo-vans.png', alt: 'Vans' },
 ];
+
+const teams = [
+  { title: 'Building a Practice', body: 'Shape a team of researchers around a shared craft and a point of view worth defending.' },
+  { title: 'Coaching', body: 'Help researchers find their own voice, give them room to run, and stand close enough to catch them.' },
+  { title: 'A Place to Belong', body: 'Make a team feel like home. Somewhere people are taken care of, safe to put up a hand and ask for help, and just as safe to jump straight in.' },
+  { title: 'Rituals & Rhythms', body: "Build the systems, rituals, and rhythms that keep a team honest, curious, and generative, always building on each other's ideas. I don't love saying no, so I build systems that say it kindly for me." },
+];
+
+const technology = [
+  { title: 'AI-Augmented Research', body: 'Hand the heavy lifting to the machines so there is more time for the parts that matter: the head and the heart.' },
+  { title: 'Tooling the Craft', body: 'Build tools, personal and team-wide, that hold on to what matters, so we can be fully present for the moment in front of us.' },
+  { title: 'Synthesis at Scale', body: 'Help a whole team move through mountains of data, transcripts, dashboards, field notes, without losing the goose-bump moments buried inside them.' },
+  { title: 'Human Judgement', body: 'Know where the machine stops and the human begins. Taste, empathy, and the room still belong to us. For now.' },
+];
 ---
 <Layout
   title="About"
   active="about"
-  description="I'm an Amsterdam based Qualitative Researcher and Strategist who seeks the heart-felt perspective."
+  description="Researcher, strategist, and documentarian. Head of Research at DEPT in Amsterdam."
   image="/images/about/profile.jpg"
 >
   <section class="page-head" id="about-top">
     <h1>About</h1>
     <p>
-      I am a researcher, strategist, and documentarian. CV and case studies can be found
-      <a href="https://drive.google.com/file/d/1E0UvrLqd9Nw9O6z6KIwy-ewdUo8w1zpV/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><strong>here</strong></a>.
+      I am a researcher, strategist, and documentarian. A considered listener and creative thinker. These days I'm also Head of Research at DEPT® in Amsterdam.
     </p>
   </section>
 
@@ -53,8 +66,7 @@ const logos = [
         My disciplines centre around an innate need for perspective, a sensitivity to the world, and a desire to be kind to myself and others. I seek the heart-felt perspective.
       </p>
       <div class="btn-row">
-        <a class="btn" href="#services-hero">Read on</a>
-        <a class="btn" href="#contact-form">Contact</a>
+        <a class="btn" href="#my-roots">Read on</a>
       </div>
     </div>
   </section>
@@ -74,14 +86,11 @@ const logos = [
     </div>
   </section>
 
-  <section class="jam" id="services-hero" style="background-image: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('/images/about/my-jam.jpg');">
-    <div>
-      <h1>My Jam</h1>
-      <div class="btn-row" style="justify-content:center;">
-        <a class="btn" href="#research-services">Research</a>
-        <a class="btn" href="#strategy-services">Strategy</a>
-      </div>
-    </div>
+  <section class="about-block" id="my-roots">
+    <h2>My Roots</h2>
+    <p>
+      Ethnographic research and brand strategy. One is the immersive soak, the other the sharpest articulation. I take it all in, let it stew, then make the jump. It's what considered listener, creative thinker looks like in practice.
+    </p>
   </section>
 
   <section class="cards-section" id="research-services">
@@ -110,36 +119,58 @@ const logos = [
     </div>
   </section>
 
-  <section class="contact" id="contact-form">
-    <div class="contact-inner">
-      <h2>Does the spirit move you?</h2>
-      <p>Please get in touch.</p>
-      <p class="hint"><em>Fields marked with an asterisk (*) are required.</em></p>
-      <form action="#" method="post">
-        <div class="form-grid">
-          <div>
-            <label for="First-Name">First name *</label>
-            <input id="First-Name" name="First-Name" type="text" required />
-          </div>
-          <div>
-            <label for="Last-Name">Last name *</label>
-            <input id="Last-Name" name="Last-Name" type="text" required />
-          </div>
-          <div>
-            <label for="Email">Email *</label>
-            <input id="Email" name="Email" type="email" required />
-          </div>
-          <div>
-            <label for="Contact-Phone-Number">Phone number</label>
-            <input id="Contact-Phone-Number" name="Contact-Phone-Number" type="tel" />
-          </div>
-          <div class="full">
-            <label for="Message">Message</label>
-            <textarea id="Message" name="Message"></textarea>
-          </div>
+  <section class="about-block">
+    <p>
+      Much of it gets captured along the way. See <a href="/photography">Photography</a>. See <a href="/film">Film</a>.
+    </p>
+  </section>
+
+  <section class="about-block field-notes">
+    <h2>Field Notes</h2>
+    <ul>
+      <li>Ask the question, then take a breath. If nothing comes, take another. The truest things arrive in the second silence.</li>
+      <li>Walk into every room assuming you know nothing. The obvious question is usually the brave one.</li>
+      <li>I'm not a systems person. I build systems so I can stay a people person.</li>
+      <li>If no one was moved, it isn't finished. That goes for the research, the strategy, and the team.</li>
+    </ul>
+  </section>
+
+  <section class="about-block frontiers">
+    <h2>My Frontiers</h2>
+    <p>
+      I lead a research team now, with machines in the toolkit. My conviction hasn't moved. In a world ever more weighted towards data, we have to keep grounding ourselves in the real. Data meets reality. People first, always.
+    </p>
+    <h3>Teams</h3>
+    <div class="frontier-grid">
+      {teams.map((c) => (
+        <div class="frontier-card">
+          <h4>{c.title}</h4>
+          <p>{c.body}</p>
         </div>
-        <button class="submit" type="submit">Submit</button>
-      </form>
+      ))}
     </div>
+    <h3>Technology</h3>
+    <div class="frontier-grid">
+      {technology.map((c) => (
+        <div class="frontier-card">
+          <h4>{c.title}</h4>
+          <p>{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="about-block now">
+    <h2>Now</h2>
+    <p>
+      Currently rebuilding this website. Slowly making a home, which I'm counting as a creative project. Spending less time on the feeds and more in places I can own, free of the mechanics that have started to feel heavy. The photography will live here, for the people who actually care.
+    </p>
+  </section>
+
+  <section class="about-block about-close">
+    <h2>Does the spirit move you?</h2>
+    <p>
+      No forms here anymore. Write me at <a href="mailto:benculpin@gmail.com">benculpin@gmail.com</a> or find me on <a href="https://www.linkedin.com/in/benculpin/">LinkedIn</a>. I read everything.
+    </p>
   </section>
 </Layout>

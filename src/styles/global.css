@@ -399,7 +399,7 @@ p { margin: 0 0 1em; }
 .jam .btn { color: #fff; }
 .jam .btn:hover { color: rgba(255,255,255,0.72); }
 .cards-section {
-  max-width: var(--page);
+  max-width: var(--wide);
   margin: 0 auto;
   padding: 72px 24px 16px;
 }
@@ -469,6 +469,69 @@ p { margin: 0 0 1em; }
 @media (max-width: 600px) {
   .form-grid { grid-template-columns: 1fr; }
 }
+
+/* About — quiet blocks */
+.about-block {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 56px 24px 28px;
+}
+.about-block p {
+  font-weight: 400;
+  font-size: 1.08rem;
+  color: var(--text);
+  max-width: 38rem;
+}
+.about-block a { text-underline-offset: 0.18em; }
+
+.field-notes ul {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  max-width: 38rem;
+}
+.field-notes li {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+  padding: 18px 0;
+  border-top: 1px solid var(--hairline);
+}
+.field-notes li:last-child { border-bottom: 1px solid var(--hairline); }
+
+.frontiers h3 { margin: 40px 0 8px; }
+.frontier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+}
+.frontier-card {
+  padding: 22px 0;
+  border-top: 1px solid var(--hairline);
+}
+.frontier-card h4 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 0.4em;
+}
+.frontier-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+  max-width: none;
+}
+@media (max-width: 767px) {
+  .frontier-grid { grid-template-columns: 1fr; }
+}
+
+.about-close { padding-bottom: 80px; }
+.about-close a {
+  color: var(--muted);
+  text-underline-offset: 0.18em;
+}
+.about-close a:hover { color: var(--black); }
 
 /* Photography */
 .photo-hero {
