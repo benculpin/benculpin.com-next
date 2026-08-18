@@ -14,7 +14,7 @@ export const films: Film[] = [
     title: 'Hold Back: A Perspective From Yoga',
     lede: 'This is a BEKIND film.',
     poster: '/images/films/hold-back.jpg',
-    href: '/films/hold-back',
+    href: '/film/hold-back',
   },
   {
     id: 'a-mothers-love',
@@ -22,7 +22,7 @@ export const films: Film[] = [
     title: "A Mother's Love",
     lede: "A portrait of a mother's love.",
     poster: '/images/films/a-mothers-love.jpg',
-    href: '/films/a-mothers-love',
+    href: '/film/a-mothers-love',
   },
   {
     id: 'Sailing-4000-miles',
@@ -30,7 +30,7 @@ export const films: Film[] = [
     title: 'What Does Sailing 4000 Miles Teach You?',
     lede: 'This is my personal account of sailing from Brazil to the Caribbean over 6 weeks.',
     poster: '/images/films/Sailing-4000-miles.jpg',
-    href: '/films/Sailing-4000-miles',
+    href: '/film/Sailing-4000-miles',
   },
   {
     id: 'what-is-beauty',
@@ -38,7 +38,7 @@ export const films: Film[] = [
     title: 'What is Beauty?',
     lede: 'The question is fundamental.',
     poster: '/images/films/what-is-beauty.jpg',
-    href: '/films/what-is-beauty',
+    href: '/film/what-is-beauty',
   },
   {
     id: 'the-strangers-project',
@@ -46,7 +46,7 @@ export const films: Film[] = [
     title: 'The Strangers Project',
     lede: 'This is a film about Strangers and the space that exists between them.',
     poster: '/images/films/the-strangers-project.jpg',
-    href: '/films/the-strangers-project',
+    href: '/film/the-strangers-project',
   },
   {
     id: 'what-is-carnival',
@@ -54,7 +54,7 @@ export const films: Film[] = [
     title: 'O que é Carnaval [What is Carnival]?',
     lede: 'Earlier this year I wanted to experience Brazilian Carnival.',
     poster: '/images/films/what-is-carnival.jpg',
-    href: '/films/what-is-carnival',
+    href: '/film/what-is-carnival',
   },
 ];
 

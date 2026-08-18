@@ -19,7 +19,7 @@ import { films, filmIds } from '../../data/films';
   <script is:inline define:vars={{ filmIds }}>
     const hash = window.location.hash.replace(/^#/, '');
     if (hash && filmIds.includes(hash)) {
-      window.location.replace('/films/' + hash);
+      window.location.replace('/film/' + hash);
     }
   </script>
 </Layout>
