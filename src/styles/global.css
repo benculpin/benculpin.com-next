@@ -159,15 +159,15 @@ p { margin: 0 0 1em; }
 .site-footer {
   background: var(--white);
   border-top: 1px solid var(--hairline);
-  padding: 72px 0 88px;
-  margin-top: 72px;
+  padding: 48px 0 56px;
+  margin-top: 40px;
 }
 .footer-grid {
   max-width: var(--wide);
   margin: 0 auto;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
   gap: 40px 28px;
   text-align: left;
   align-items: start;
@@ -424,7 +424,7 @@ p { margin: 0 0 1em; }
 .contact {
   background: var(--black);
   color: #fff;
-  padding: 80px 24px 88px;
+  padding: 80px 24px 48px;
   margin-top: 40px;
 }
 .contact h2, .contact p, .contact label, .contact .hint { color: #fff; }
@@ -550,7 +550,7 @@ p { margin: 0 0 1em; }
 .collection-list {
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 8px 24px 80px;
+  padding: 8px 24px 40px;
 }
 .collection {
   display: grid;
@@ -598,7 +598,7 @@ p { margin: 0 0 1em; }
 .film-grid {
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 8px 24px 80px;
+  padding: 8px 24px 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px 28px;
@@ -683,7 +683,7 @@ p { margin: 0 0 1em; }
 .note-list {
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 8px 24px 72px;
+  padding: 8px 24px 40px;
 }
 .note-item {
   display: flex;
@@ -719,7 +719,7 @@ p { margin: 0 0 1em; }
 .notebook-page {
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 56px 24px 72px;
+  padding: 56px 24px 40px;
 }
 .notebook-page .page-head,
 .notebook-page .note-list {
@@ -776,7 +776,7 @@ p { margin: 0 0 1em; }
 }
 .article-body {
   max-width: var(--wide);
-  margin: 56px auto 80px;
+  margin: 56px auto 40px;
   padding: 0 24px;
   font-size: 1.08rem;
   line-height: 1.75;
@@ -874,7 +874,7 @@ p { margin: 0 0 1em; }
 .companion a:hover { color: var(--black); }
 .note-preview {
   max-width: var(--wide);
-  margin: 8px auto 56px;
+  margin: 8px auto 40px;
   padding: 0 24px;
 }
 .note-preview p {
@@ -905,7 +905,7 @@ p { margin: 0 0 1em; }
 .podcast-body {
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 8px 24px 80px;
+  padding: 8px 24px 32px;
 }
 .podcast-body > p {
   max-width: var(--measure);
