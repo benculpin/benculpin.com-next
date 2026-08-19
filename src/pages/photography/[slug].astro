@@ -18,16 +18,15 @@ const { collection } = Astro.props;
 const intro = collection.intro ?? collection.lede;
 const notebookHref = collection.notebook ? `/notebook/${collection.notebook}` : undefined;
 
-type StoryRow = { kind: 'full' | 'pair'; files: string[] };
+type StoryRow = { kind: 'full' | 'pair' | 'bleed'; files: string[] };
 
 const TAIWAN_STORY: StoryRow[] = [
-  { kind: 'full', files: ['01.jpg'] },
-  { kind: 'pair', files: ['02.jpg', '03.jpg'] },
+  { kind: 'bleed', files: ['03.jpg'] },
+  { kind: 'pair', files: ['01.jpg', '02.jpg'] },
   { kind: 'pair', files: ['04.jpg', '07.jpg'] },
   { kind: 'pair', files: ['05.jpg', '06.jpg'] },
-  { kind: 'full', files: ['08.jpg'] },
-  { kind: 'full', files: ['13.jpg'] },
-  { kind: 'full', files: ['09.jpg'] },
+  { kind: 'pair', files: ['08.jpg', '13.jpg'] },
+  { kind: 'bleed', files: ['09.jpg'] },
   { kind: 'pair', files: ['10.jpg', '11.jpg'] },
   { kind: 'full', files: ['12.jpg'] },
   { kind: 'pair', files: ['14.jpg', '19.jpg'] },
