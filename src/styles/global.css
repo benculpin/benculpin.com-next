@@ -682,6 +682,41 @@ p { margin: 0 0 1em; }
 }
 
 
+/* Photography landing tiles — scoped so .collection stays a list elsewhere */
+.photo-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 20px;
+}
+.photo-index .collection {
+  display: block;
+  padding: 0;
+  border: 0;
+  align-items: unset;
+  grid-template-columns: none;
+  gap: 0;
+}
+.photo-index .collection:first-child {
+  border-top: 0;
+}
+.photo-index .collection img {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.photo-index .collection h2 {
+  margin: 12px 0 6px;
+}
+.photo-index .collection:hover {
+  opacity: 0.85;
+}
+@media (max-width: 767px) {
+  .photo-index {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Films */
 .film-grid {
   max-width: var(--wide);
