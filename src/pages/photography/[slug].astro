@@ -38,24 +38,67 @@ const TAIWAN_STORY: StoryRow[] = [
   { kind: 'pair', files: ['20.jpg', '21.jpg'] },
 ];
 
+const PHILIPPINES_STORY: StoryRow[] = [
+  { kind: 'bleed', files: ['05.jpg'] },
+  { kind: 'pair', files: ['01.jpg', '02.jpg'] },
+  { kind: 'pair', files: ['04.jpg', '09.jpg'] },
+  { kind: 'pair', files: ['03.jpg', '07.jpg'] },
+  { kind: 'pair', files: ['06.jpg', '08.jpg'] },
+  { kind: 'full', files: ['10.jpg'] },
+  { kind: 'bleed', files: ['11.jpg'] },
+  { kind: 'full', files: ['13.jpg'] },
+  { kind: 'full', files: ['14.jpg'] },
+  { kind: 'full', files: ['15.jpg'] },
+  { kind: 'pair', files: ['16.jpg', '17.jpg'] },
+  { kind: 'full', files: ['18.jpg'] },
+  { kind: 'pair', files: ['19.jpg', '20.jpg'] },
+  { kind: 'full', files: ['21.jpg'] },
+  { kind: 'pair', files: ['22.jpg', '23.jpg'] },
+  { kind: 'full', files: ['24.jpg'] },
+];
+
 const storyRows: StoryRow[] | null =
   collection.layout === 'story'
     ? collection.slug === 'taiwan'
       ? TAIWAN_STORY
-      : collection.images.map((img) => ({
-          kind: 'full' as const,
-          files: [img.src.split('/').pop() || ''],
-        }))
+      : collection.slug === 'philippines'
+        ? PHILIPPINES_STORY
+        : collection.images.map((img) => ({
+            kind: 'full' as const,
+            files: [img.src.split('/').pop() || ''],
+          }))
     : null;
+
+const openingBleed = storyRows?.[0]?.kind === 'bleed' ? storyRows[0] : null;
+const followingRows = openingBleed && storyRows ? storyRows.slice(1) : storyRows;
 ---
 <Layout title={collection.title} active="photography">
-  <section class="page-head">
-    <h1>{collection.title}</h1>
-    {intro && !notebookHref && <p>{intro}</p>}
-  </section>
-  {storyRows ? (
+  {openingBleed ? (
+    <div class="story-open">
+      <section class="page-head">
+        <h1>{collection.title}</h1>
+        {intro && !notebookHref && <p>{intro}</p>}
+      </section>
+      <div class="story-row story-row--bleed">
+        {openingBleed.files.map((file) => {
+          const src = `/images/photography/${collection.slug}/${file}`;
+          return (
+            <button type="button" class="lb-open" data-full={src}>
+              <img src={src} alt="" />
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  ) : (
+    <section class="page-head">
+      <h1>{collection.title}</h1>
+      {intro && !notebookHref && <p>{intro}</p>}
+    </section>
+  )}
+  {followingRows ? (
     <div class="story">
-      {storyRows.map((row) => (
+      {followingRows.map((row) => (
         <div class={`story-row story-row--${row.kind}`}>
           {row.files.map((file) => {
             const src = `/images/photography/${collection.slug}/${file}`;

@@ -9,6 +9,7 @@
   --pale: #f6f6f5;
   --pale-border: #ececec;
   --header-h: 64px;
+  --story-gap: 24px;
   --measure: 40rem;
   --page: 58rem;
   --wide: 68rem;
@@ -682,6 +683,41 @@ p { margin: 0 0 1em; }
 }
 
 
+/* Photography landing tiles — scoped so .collection stays a list elsewhere */
+.photo-index {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--story-gap);
+}
+.photo-index .collection {
+  display: block;
+  padding: 0;
+  border: 0;
+  align-items: unset;
+  grid-template-columns: none;
+  gap: 0;
+}
+.photo-index .collection:first-child {
+  border-top: 0;
+}
+.photo-index .collection img {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.photo-index .collection h2 {
+  margin: 12px 0 6px;
+}
+.photo-index .collection:hover {
+  opacity: 0.85;
+}
+@media (max-width: 767px) {
+  .photo-index {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Films */
 .film-grid {
   max-width: var(--wide);
@@ -936,13 +972,13 @@ p { margin: 0 0 1em; }
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 4px 0 24px;
+  padding: var(--story-gap) 0;
 }
 .story-row {
-  margin-bottom: 32px;
+  margin-bottom: var(--story-gap);
 }
 .story-row:last-child {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 .story-row--full,
 .story-row--pair {
@@ -982,10 +1018,88 @@ p { margin: 0 0 1em; }
   object-fit: contain;
   display: block;
 }
+
+/* Opening hero: full-bleed photo, discreet title + date over the bottom-left */
+.story-open {
+  position: relative;
+  height: calc(100dvh - var(--header-h));
+  overflow: hidden;
+}
+.story-open::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.28), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+.story-open .page-head {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 16px 24px 24px;
+  pointer-events: none;
+}
+.story-open .page-head h1 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.12rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 0.12em;
+  letter-spacing: 0;
+}
+.story-open .page-head p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  max-width: none;
+}
+.story-open .story-row--bleed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.story-open .story-row--bleed button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.story-open .story-row--bleed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 767px) {
+  .story-open .page-head {
+    padding: 14px 24px 20px;
+  }
+  .story-open .page-head h1 {
+    font-size: 1.02rem;
+  }
+  .story-open .page-head p {
+    font-size: 0.75rem;
+  }
+}
+
 .story-row--pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: var(--story-gap);
   align-items: stretch;
 }
 .story-row--pair button {

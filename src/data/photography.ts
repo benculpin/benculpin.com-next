@@ -44,7 +44,7 @@ const existing: Collection[] = [
   {
     slug: 'nuance-of-experience',
     title: 'Nuance of Experience',
-    lede: "Pushing the limits of an iPhone while also exploring the nuance of what's really going on.",
+    lede: "Pushing the limits of an iPhone.",
     notebook: 'nuance-of-experience',
     notePreview: "What's stirring within, what's coming straight at you from another person or place; or even what emotional artefacts stay with you and take on a life of their own?",
     cover: '/images/photography/nuance/IMG_6728.jpg',
@@ -57,6 +57,7 @@ const existing: Collection[] = [
   {
     slug: 'portraits-and-moments',
     title: 'Portraits & Moments',
+    lede: 'Selected portraits of dear friends, loved ones, and strangers.',
     cover: '/images/photography/portrait-dsc09555.jpg',
     href: '/photography/portraits-and-moments',
     images: [
