@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 html, body { margin: 0; padding: 0; }
 body {
   color: var(--text);
@@ -929,6 +929,77 @@ p { margin: 0 0 1em; }
   object-fit: cover;
   background: #ececec;
   cursor: zoom-in;
+}
+
+/* Photography story — Taiwan (and any set with layout: story) */
+.story {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 4px 0 24px;
+}
+.story-row {
+  margin-bottom: 32px;
+}
+.story-row:last-child {
+  margin-bottom: 24px;
+}
+.story-row--full,
+.story-row--pair {
+  max-width: var(--wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.story button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+}
+.story img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: none;
+}
+.story-row--bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+}
+.story-row--bleed img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.story-row--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: stretch;
+}
+.story-row--pair button {
+  height: min(62vh, 560px);
+  overflow: hidden;
+}
+.story-row--pair img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  .story-row--pair { grid-template-columns: 1fr; }
+  .story-row--pair button { height: min(52vh, 420px); }
 }
 
 .lb-nav {

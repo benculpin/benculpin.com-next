@@ -22,6 +22,8 @@ export type Collection = {
   cover: string;
   href: string;
   images: Photo[];
+  /** Full-width scroll instead of the tile grid. Folder sets: third line of set.txt. */
+  layout?: "story";
   quote?: {
     lines: string[];
     background: string;

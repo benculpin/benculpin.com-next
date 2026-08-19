@@ -13,6 +13,15 @@ function titleFromSlug(slug: string) {
     .join(" ");
 }
 
+function isCoverFile(file: string) {
+  return /^cover\.jpe?g$/i.test(file);
+}
+
+function layoutFromMeta(line: string | undefined): Collection["layout"] {
+  if (line === "story" || line === "layout: story") return "story";
+  return undefined;
+}
+
 /** Folders with a set.txt are photo sets Ben can add himself. */
 export function loadFolderSets(existingSlugs: Set<string>): Collection[] {
   if (!fs.existsSync(PHOTO_DIR)) return [];
@@ -32,6 +41,7 @@ export function loadFolderSets(existingSlugs: Set<string>): Collection[] {
       .filter(Boolean);
     const title = lines[0] || titleFromSlug(name);
     const lede = lines[1];
+    const layout = layoutFromMeta(lines[2]);
 
     const files = fs
       .readdirSync(dir)
@@ -39,14 +49,16 @@ export function loadFolderSets(existingSlugs: Set<string>): Collection[] {
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
     if (!files.length) continue;
 
-    const coverFile = files.find((file) => /^cover\./i.test(file)) || files[0];
+    const coverFile = files.find(isCoverFile) || files[0];
+    const galleryFiles = files.filter((file) => !isCoverFile(file));
     sets.push({
       slug: name,
       title,
       lede,
+      layout,
       cover: `/images/photography/${name}/${coverFile}`,
       href: `/photography/${name}`,
-      images: files.map((file) => ({
+      images: galleryFiles.map((file) => ({
         src: `/images/photography/${name}/${file}`,
         alt: "",
       })),

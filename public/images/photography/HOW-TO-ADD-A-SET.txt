@@ -26,7 +26,7 @@ You do this in the browser on GitHub. You do not need to edit any code.
    Drop your photos in and commit them.
 
 7. If you name one photo cover.jpg, that picture is used on the photography landing page.
-   If you do not, the first photo in the folder is used instead.
+   It is not shown again in the gallery. If you do not, the first photo in the folder is used instead.
 
 That is all. The site will pick up the new set from the folder. Do not edit any TypeScript files.
 
