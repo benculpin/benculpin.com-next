@@ -57,7 +57,7 @@ const existing: Collection[] = [
   {
     slug: 'portraits-and-moments',
     title: 'Portraits & Moments',
-    lede: 'A selection of portraits of dear friends, loved ones, and strangers.',
+    lede: 'Selected portraits of dear friends, loved ones, and strangers.',
     cover: '/images/photography/portrait-dsc09555.jpg',
     href: '/photography/portraits-and-moments',
     images: [
