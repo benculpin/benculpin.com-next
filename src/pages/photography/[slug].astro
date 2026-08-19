@@ -68,15 +68,37 @@ const storyRows: StoryRow[] | null =
             files: [img.src.split('/').pop() || ''],
           }))
     : null;
+
+const openingBleed = storyRows?.[0]?.kind === 'bleed' ? storyRows[0] : null;
+const followingRows = openingBleed && storyRows ? storyRows.slice(1) : storyRows;
 ---
 <Layout title={collection.title} active="photography">
-  <section class="page-head">
-    <h1>{collection.title}</h1>
-    {intro && !notebookHref && <p>{intro}</p>}
-  </section>
-  {storyRows ? (
+  {openingBleed ? (
+    <div class="story-open">
+      <section class="page-head">
+        <h1>{collection.title}</h1>
+        {intro && !notebookHref && <p>{intro}</p>}
+      </section>
+      <div class="story-row story-row--bleed">
+        {openingBleed.files.map((file) => {
+          const src = `/images/photography/${collection.slug}/${file}`;
+          return (
+            <button type="button" class="lb-open" data-full={src}>
+              <img src={src} alt="" />
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  ) : (
+    <section class="page-head">
+      <h1>{collection.title}</h1>
+      {intro && !notebookHref && <p>{intro}</p>}
+    </section>
+  )}
+  {followingRows ? (
     <div class="story">
-      {storyRows.map((row) => (
+      {followingRows.map((row) => (
         <div class={`story-row story-row--${row.kind}`}>
           {row.files.map((file) => {
             const src = `/images/photography/${collection.slug}/${file}`;
