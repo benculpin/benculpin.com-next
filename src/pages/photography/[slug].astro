@@ -38,14 +38,36 @@ const TAIWAN_STORY: StoryRow[] = [
   { kind: 'pair', files: ['20.jpg', '21.jpg'] },
 ];
 
+const PHILIPPINES_STORY: StoryRow[] = [
+  { kind: 'bleed', files: ['03.jpg'] },
+  { kind: 'full', files: ['01.jpg'] },
+  { kind: 'full', files: ['02.jpg'] },
+  { kind: 'pair', files: ['04.jpg', '09.jpg'] },
+  { kind: 'pair', files: ['05.jpg', '07.jpg'] },
+  { kind: 'pair', files: ['06.jpg', '08.jpg'] },
+  { kind: 'full', files: ['10.jpg'] },
+  { kind: 'pair', files: ['11.jpg', '12.jpg'] },
+  { kind: 'full', files: ['13.jpg'] },
+  { kind: 'full', files: ['14.jpg'] },
+  { kind: 'bleed', files: ['15.jpg'] },
+  { kind: 'pair', files: ['16.jpg', '17.jpg'] },
+  { kind: 'full', files: ['18.jpg'] },
+  { kind: 'pair', files: ['19.jpg', '20.jpg'] },
+  { kind: 'full', files: ['21.jpg'] },
+  { kind: 'pair', files: ['22.jpg', '23.jpg'] },
+  { kind: 'full', files: ['24.jpg'] },
+];
+
 const storyRows: StoryRow[] | null =
   collection.layout === 'story'
     ? collection.slug === 'taiwan'
       ? TAIWAN_STORY
-      : collection.images.map((img) => ({
-          kind: 'full' as const,
-          files: [img.src.split('/').pop() || ''],
-        }))
+      : collection.slug === 'philippines'
+        ? PHILIPPINES_STORY
+        : collection.images.map((img) => ({
+            kind: 'full' as const,
+            files: [img.src.split('/').pop() || ''],
+          }))
     : null;
 ---
 <Layout title={collection.title} active="photography">
