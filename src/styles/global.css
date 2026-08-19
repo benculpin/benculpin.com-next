@@ -931,6 +931,43 @@ p { margin: 0 0 1em; }
   cursor: zoom-in;
 }
 
+/* Photography story — Taiwan (and any set with layout: story) */
+.story {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 12px 24px 24px;
+}
+.story-row {
+  margin-bottom: 56px;
+}
+.story-row:last-child {
+  margin-bottom: 24px;
+}
+.story button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+}
+.story img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: #ececec;
+}
+.story-row--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 767px) {
+  .story-row--pair { grid-template-columns: 1fr; }
+}
+
 .lb-nav {
   position: absolute;
   top: 50%;
