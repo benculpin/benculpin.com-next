@@ -1,4 +1,5 @@
 import { loadFolderSets } from "./load-photo-sets";
+import { parseLedeSortDate, sortPhotographyCards } from "./photo-sort";
 
 export type Photo = {
   src: string;
@@ -24,6 +25,8 @@ export type Collection = {
   images: Photo[];
   /** Full-width scroll instead of the tile grid. Folder sets: third line of set.txt. */
   layout?: "story";
+  /** YYYY-MM or YYYY from the lede. /photography cards only, newest first. */
+  sortDate?: string;
   quote?: {
     lines: string[];
     background: string;
@@ -97,7 +100,12 @@ const existing: Collection[] = [
 
 const existingSlugs = new Set(existing.map((c) => c.slug));
 
-export const collections = [...loadFolderSets(existingSlugs), ...existing];
+export const collections = sortPhotographyCards(
+  [...loadFolderSets(existingSlugs), ...existing].map((collection) => ({
+    ...collection,
+    sortDate: collection.sortDate ?? parseLedeSortDate(collection.lede),
+  })),
+);
 
 export function getCollection(slug: string | undefined) {
   return collections.find((c) => c.slug === slug);

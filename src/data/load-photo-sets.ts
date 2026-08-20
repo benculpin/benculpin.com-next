@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Collection } from "./photography";
+import { parseLedeSortDate } from "./photo-sort";
 
 const PHOTO_DIR = path.join(process.cwd(), "public/images/photography");
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".gif"]);
@@ -56,6 +57,7 @@ export function loadFolderSets(existingSlugs: Set<string>): Collection[] {
       title,
       lede,
       layout,
+      sortDate: parseLedeSortDate(lede),
       cover: `/images/photography/${name}/${coverFile}`,
       href: `/photography/${name}`,
       images: galleryFiles.map((file) => ({
@@ -65,9 +67,5 @@ export function loadFolderSets(existingSlugs: Set<string>): Collection[] {
     });
   }
 
-  return sets.sort((a, b) => {
-    const aTime = fs.statSync(path.join(PHOTO_DIR, a.slug)).mtimeMs;
-    const bTime = fs.statSync(path.join(PHOTO_DIR, b.slug)).mtimeMs;
-    return bTime - aTime;
-  });
+  return sets;
 }
