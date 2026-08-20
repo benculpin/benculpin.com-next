@@ -57,7 +57,6 @@ const PHILIPPINES_STORY: StoryRow[] = [
   { kind: 'full', files: ['24.jpg'] },
 ];
 
-
 const IBIZA_STORY: StoryRow[] = [
   // 01 DSC01161 car hand | 02 DSC00653 laugh | 03 DSC00658 sunbathing
   // 04 IMG_7679 eyes | 05 DSC00720 surprised | 06 DSC00724 quiet dusk
@@ -104,6 +103,44 @@ const BERLIN_STORY: StoryRow[] = [
   { kind: 'full', files: ['24.jpg'] },
 ];
 
+const TUNISIA_STORY: StoryRow[] = [
+  { kind: 'bleed', files: ['01.jpg'] },
+  { kind: 'pair', files: ['02.jpg', '03.jpg'] },
+  { kind: 'full', files: ['04.jpg'] },
+  { kind: 'pair', files: ['05.jpg', '06.jpg'] },
+  { kind: 'bleed', files: ['07.jpg'] },
+  { kind: 'pair', files: ['08.jpg', '09.jpg'] },
+  { kind: 'full', files: ['10.jpg'] },
+  { kind: 'pair', files: ['11.jpg', '12.jpg'] },
+  { kind: 'full', files: ['13.jpg'] },
+  { kind: 'pair', files: ['14.jpg', '15.jpg'] },
+  { kind: 'full', files: ['16.jpg'] },
+  { kind: 'pair', files: ['17.jpg', '18.jpg'] },
+  { kind: 'pair', files: ['19.jpg', '20.jpg'] },
+  { kind: 'pair', files: ['21.jpg', '22.jpg'] },
+  { kind: 'full', files: ['23.jpg'] },
+  { kind: 'bleed', files: ['24.jpg'] },
+  { kind: 'full', files: ['25.jpg'] },
+  { kind: 'full', files: ['26.jpg'] },
+  { kind: 'pair', files: ['27.jpg', '28.jpg'] },
+  { kind: 'full', files: ['29.jpg'] },
+  { kind: 'bleed', files: ['30.jpg'] },
+  { kind: 'pair', files: ['31.jpg', '32.jpg'] },
+  { kind: 'pair', files: ['33.jpg', '34.jpg'] },
+  { kind: 'pair', files: ['35.jpg', '36.jpg'] },
+  { kind: 'bleed', files: ['37.jpg'] },
+  { kind: 'full', files: ['38.jpg'] },
+  { kind: 'pair', files: ['39.jpg', '40.jpg'] },
+  { kind: 'full', files: ['41.jpg'] },
+  { kind: 'bleed', files: ['42.jpg'] },
+  { kind: 'pair', files: ['43.jpg', '44.jpg'] },
+  { kind: 'pair', files: ['45.jpg', '46.jpg'] },
+  { kind: 'full', files: ['47.jpg'] },
+  { kind: 'full', files: ['48.jpg'] },
+  { kind: 'bleed', files: ['49.jpg'] },
+  { kind: 'full', files: ['50.jpg'] },
+];
+
 const storyRows: StoryRow[] | null =
   collection.layout === 'story'
     ? collection.slug === 'taiwan'
@@ -114,10 +151,12 @@ const storyRows: StoryRow[] | null =
           ? IBIZA_STORY
           : collection.slug === 'berlin'
             ? BERLIN_STORY
-            : collection.images.map((img) => ({
-                kind: 'full' as const,
-                files: [img.src.split('/').pop() || ''],
-              }))
+            : collection.slug === 'tunisia'
+              ? TUNISIA_STORY
+              : collection.images.map((img) => ({
+                  kind: 'full' as const,
+                  files: [img.src.split('/').pop() || ''],
+                }))
     : null;
 
 const openingBleed = storyRows?.[0]?.kind === 'bleed' ? storyRows[0] : null;
