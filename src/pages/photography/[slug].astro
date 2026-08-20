@@ -174,6 +174,32 @@ const CHRISTMAS_STORY: StoryRow[] = [
   { kind: 'bleed', files: ['26.jpg'] },
 ];
 
+const SPAIN_STORY: StoryRow[] = [
+  // 01 bed faces | 02 mother + toddler sea | 03 woman shouting in water
+  // 04 orange bikini portrait | 05 three women swimming | 06 man kissing toddler
+  // 07 laughing with baby | 08 two women laugh, baby | 09 beach group kiss
+  // 10 sunglasses terrace | 11 breakfast couple | 12 hammock two women
+  // 13 man + sleeping baby hammock | 14 picnic table | 15 pebble beach kiss
+  // 16 lemon print covering eyes | 17 baby kiss close-up | 18 three dresses portrait
+  // 19 girl running wedding | 20 bride and flower girl | 21 dancing under lights
+  { kind: 'bleed', files: ['01.jpg'] },
+  { kind: 'pair', files: ['02.jpg', '03.jpg'] },
+  { kind: 'full', files: ['04.jpg'] },
+  { kind: 'bleed', files: ['05.jpg'] },
+  { kind: 'full', files: ['06.jpg'] },
+  { kind: 'pair', files: ['07.jpg', '08.jpg'] },
+  { kind: 'full', files: ['09.jpg'] },
+  { kind: 'full', files: ['10.jpg'] },
+  { kind: 'full', files: ['11.jpg'] },
+  { kind: 'bleed', files: ['12.jpg'] },
+  { kind: 'pair', files: ['13.jpg', '14.jpg'] },
+  { kind: 'pair', files: ['15.jpg', '16.jpg'] },
+  { kind: 'full', files: ['17.jpg'] },
+  { kind: 'full', files: ['18.jpg'] },
+  { kind: 'pair', files: ['19.jpg', '20.jpg'] },
+  { kind: 'bleed', files: ['21.jpg'] },
+];
+
 const storyRows: StoryRow[] | null =
   collection.layout === 'story'
     ? collection.slug === 'taiwan'
@@ -188,6 +214,8 @@ const storyRows: StoryRow[] | null =
               ? TUNISIA_STORY
               : collection.slug === 'christmas'
                 ? CHRISTMAS_STORY
+                : collection.slug === 'spain'
+                  ? SPAIN_STORY
                 : collection.images.map((img) => ({
                   kind: 'full' as const,
                   files: [img.src.split('/').pop() || ''],
