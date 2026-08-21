@@ -688,6 +688,7 @@ p { margin: 0 0 1em; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--story-gap);
+  padding-bottom: calc(var(--story-gap) - 8px);
 }
 .photo-index .collection {
   display: block;
