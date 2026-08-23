@@ -1183,6 +1183,13 @@ p { margin: 0 0 1em; }
 .photo-look-ask:hover {
   color: var(--muted);
 }
+.story + .photo-look,
+.project-grid + .photo-look {
+  margin-top: 0;
+}
+.photo-look + .note-preview {
+  margin-top: 0;
+}
 .note-preview {
   max-width: var(--wide);
   margin: 8px auto 40px;
