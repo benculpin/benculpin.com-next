@@ -5,6 +5,10 @@ import { collections } from '../../data/photography';
 <Layout title="Photography" active="photography">
   <section class="page-head">
     <h1>Photography</h1>
+    <aside class="photo-look" id="look">
+      <p>These photos are here to look at. Please ask before using them.</p>
+      <a class="photo-look-ask" href="mailto:benculpin@gmail.com?subject=Photography">Ask</a>
+    </aside>
   </section>
   <div class="collection-list photo-index">
     {collections.map((c) => (
@@ -17,8 +21,13 @@ import { collections } from '../../data/photography';
       </a>
     ))}
   </div>
-  <aside class="photo-look" id="look">
-    <p>These photos are here to look at. Please ask before using them.</p>
-    <a class="photo-look-ask" href="mailto:benculpin@gmail.com?subject=Photography">Ask</a>
-  </aside>
 </Layout>
+
+<style>
+  /* Sit on the same left spine as the h1; page-head already has the 24px inset. */
+  .page-head .photo-look {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+</style>
