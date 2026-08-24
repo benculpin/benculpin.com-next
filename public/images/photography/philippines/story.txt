@@ -1,0 +1,16 @@
+bleed 05
+pair 01 02
+pair 04 09
+pair 03 07
+pair 06 08
+full 10
+bleed 11
+full 13
+full 14
+full 15
+pair 16 17
+full 18
+pair 19 20
+full 21
+pair 22 23
+full 24
