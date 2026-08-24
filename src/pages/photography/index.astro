@@ -39,14 +39,16 @@ import { collections } from '../../data/photography';
     margin: 0;
     padding: 0;
     max-width: none;
+    flex-wrap: nowrap;
     justify-content: flex-end;
   }
   .photo-look p {
+    min-width: 0;
+    max-width: 28rem;
     color: var(--tag);
     font-size: 0.85rem;
     font-weight: 300;
     line-height: 1.45;
-    max-width: 28rem;
   }
   @media (max-width: 767px) {
     .page-head {
