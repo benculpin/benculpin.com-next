@@ -60,5 +60,7 @@ merge to `main` to go live.
 - [`benculpin/benculpin.com`](https://github.com/benculpin/benculpin.com) —
   refund-safe replica of the old Webflow site. Not the live site; do not attach a
   domain to it.
-- [`benculpin/damkind.xyz`](https://github.com/benculpin/damkind.xyz) — replica
-  of the podcast site, which is still served from Webflow at damkind.xyz.
+- [`benculpin/damkind.xyz-next`](https://github.com/benculpin/damkind.xyz-next) —
+  the live podcast site at damkind.xyz, also on Cloudflare Pages.
+- [`benculpin/damkind.xyz`](https://github.com/benculpin/damkind.xyz) —
+  refund-safe replica of the old Webflow podcast site.

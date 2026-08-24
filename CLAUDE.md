@@ -14,10 +14,16 @@ Two other repos exist and are easy to confuse with this one:
 |---|---|
 | `benculpin/benculpin.com-next` | **this one — live** |
 | `benculpin/benculpin.com` | refund-safe Webflow replica. Do not attach a domain or move DNS to it |
-| `benculpin/damkind.xyz` | replica of the podcast site, still on Webflow at damkind.xyz |
+| `benculpin/damkind.xyz-next` | the **live** podcast site, Pages project `damkind-xyz-next` |
+| `benculpin/damkind.xyz` | refund-safe replica of the old Webflow podcast site |
 
 Dam Kind is a separate site. Never move Photography, Notebook or About onto it.
 Its audio stays on the Anchor RSS feed, `https://anchor.fm/s/f2c1e7f4/podcast/rss`.
+
+Dam Kind is **no longer on Webflow**. Verified 24 Aug 2026: `www.damkind.xyz` is a
+CNAME to `damkind-xyz-next.pages.dev`, served by Cloudflare. Any note saying it is
+"still on Webflow" is stale. Both live sites now sit on Cloudflare Pages, and
+Webflow refunded $363 on 17 Aug 2026.
 
 ## Stack
 
@@ -158,15 +164,87 @@ Ben the preview URL, and stop. He merges.
 
 Not yet fixed. Do not "discover" them again.
 
-1. **`https://benculpin.com` times out.** DNS is at Hover (`ns1.hover.com`), not
-   Cloudflare. The apex points at Hover's redirect service (`216.40.34.41`),
-   which serves HTTP but has no working TLS, so HTTPS hangs for ~15s. `www` is
-   fine. Fixing it needs Hover access, or moving nameservers to Cloudflare.
+1. **Both apex domains time out over HTTPS.** `https://benculpin.com` and
+   `https://damkind.xyz` both hang and return nothing. DNS is at Hover
+   (`ns1.hover.com`), not Cloudflare, and both apexes point at Hover's redirect
+   service (`216.40.34.41`), which serves HTTP but has no working TLS. Over HTTP
+   the redirect is fine — a consistent 302 to `www` across repeated tries. So
+   anyone following a link or a search result is unaffected; anyone *typing* the
+   bare domain into a modern browser, which tries HTTPS first, can hit a ~15s
+   hang. Introduced by the 17 Aug cutover and not noticed at the time. Fixing it
+   means changing the apex at Hover, or moving nameservers to Cloudflare — Ben's
+   call, and he has asked not to have Hover opened without him.
 2. **`trailingSlash: "never"` is not what actually happens.** Pages 308-redirects
    `/photography/tunisia` to `/photography/tunisia/`, the opposite of the config.
-   Every internal link pays a redirect hop.
+   Every internal link pays a redirect hop. Checked with Site Steward on 24 Aug:
+   there is no record of what this setting was for, so it is safe to change.
 3. **No `sitemap.xml`** — it 404s, while `robots.txt` advertises `search=yes`.
    `@astrojs/sitemap` is not installed.
+
+## Rejected — do not propose these again
+
+Ben has already considered and turned all of these down. Re-proposing them costs
+him the same conversation twice.
+
+- Notebook as an aggregator of other sections.
+- Listing one piece on both landings to cross-link it.
+- A contact form, or a Contact button on About.
+- A visible email address on Photography — the Ask button exists instead.
+- Any more coded rewrite of the look line, including
+  "Look as you like. Using one needs a yes from me."
+- "All rights reserved" beside the look line. Watermarks. Printing the email.
+- The look line centred at the bottom (PR #8) — "felt stuck". Under the title
+  (PR #9) — he chose beside, which shipped as #10. **#8 and #9 are dead and can
+  be closed.**
+- X or Instagram in the footer. An extra Contact pitch there. Merging Dam Kind's
+  "Subscribe Now" with the host photo.
+- Hashtag piles on the Notebook landing, or stacking "note photography".
+- `/films` as the live URL.
+- A full redesign. A publisher-bot that ships unreviewed. Granting other AIs
+  GitHub or Cloudflare write access.
+- The Kite day dummy set — deleted, must never go live.
+- Photography, Notebook or About on Dam Kind.
+- A print shop or selling prints, for now.
+- Upscaling the Spain and Christmas 1086px shares. Those *are* the originals —
+  the Drive copies are the same size, so there is nothing better to go back to.
+- Shrinking Nuance.
+
+PR #7 (`preview/photo-copyright`, 226 JPEGs tagged, pixels unchanged) is the one
+open draft still worth keeping. It is waiting on Ben to say go live.
+
+## Preparing photos for the web
+
+There is no resize script in this repo; the ones used so far lived on whichever
+machine did the work. If you write one, match what produced the sets already
+live, so a new set does not look different from its neighbours:
+
+- Long edge **2000px** max, JPEG **quality 82**
+- Honour EXIF orientation (`ImageOps.exif_transpose` in Pillow, `.rotate()` in sharp)
+- **LANCZOS** resampling, output sRGB RGB JPEG
+- No crops, no sharpening pass, no watermarks
+- Ibiza used `sharp` with mozjpeg; Taiwan, Philippines, Spain, Christmas and the
+  About Frontiers images used Python Pillow. Both settle on the same numbers.
+
+Camera masters stay in Ben's personal Drive at
+`1. Projects / Websites / benculpin.com-photo-drops` — never on the work Drive.
+
+## Also never
+
+On top of the hard rules above:
+
+- Do not edit the `benculpin/benculpin.com` or `benculpin/damkind.xyz` replicas,
+  and do not attach a domain or move DNS to either.
+- Do not put site files on the work or CoWork Drive.
+- Do not give other AI tools GitHub or Cloudflare write access. Cursor already
+  has GitHub.
+- Do not spend money, and do not open Hover unless Ben asks — he renews
+  damkind.xyz himself.
+- There is **no Cloudflare API token** anywhere, and no deploy hook. Pages
+  settings can only be reached through the dashboard for `benculpin@gmail.com`,
+  project `benculpin-com-next`. Deploys happen purely through the GitHub ↔ Pages
+  connection.
+- Backups: `benculpin/website-backups`, release `2026-08-17-benculpin.com`
+  (189 MB) plus a Dam Kind twin, with matching zips on Ben's Mac.
 
 ## Do not start with
 
