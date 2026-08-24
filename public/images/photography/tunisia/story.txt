@@ -1,0 +1,36 @@
+bleed 01
+pair 02 03
+full 04
+full 05
+full 06
+bleed 07
+pair 08 09
+full 10
+pair 11 12
+full 13
+pair 14 15
+full 16
+pair 17 18
+pair 19 20
+pair 21 22
+full 23
+bleed 24
+full 25
+full 26
+pair 27 28
+full 29
+bleed 30
+pair 31 32
+pair 33 34
+pair 35 36
+bleed 37
+full 38
+pair 39 40
+full 41
+bleed 42
+pair 43 44
+pair 45 46
+full 47
+full 48
+bleed 49
+full 50

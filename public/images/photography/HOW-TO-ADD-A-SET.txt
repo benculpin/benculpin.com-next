@@ -39,3 +39,32 @@ Notes (writing) are separate
 A note is a .md file in src/pages/notebook.
 If a note belongs with a gallery, put a link to that gallery at the end of the note.
 Example: [Photographs](/photography/lisbon-2026)
+
+---
+
+Choosing the order and size of photos (story.txt)
+
+If a set says "story" on line 3 of set.txt, you can also add a file called
+story.txt in the same folder to say how the photos are laid out.
+
+One line per row. Start the line with the size, then list the photos on it:
+
+  bleed 01
+  pair 02 03
+  full 04
+
+  bleed = edge to edge, the widest
+  full  = full width of the text column
+  pair  = two photos side by side
+
+You can leave the .jpg off, so "pair 02 03" is the same as "pair 02.jpg 03.jpg".
+Blank lines are ignored. Anything after a # is a note to yourself, e.g.
+
+  bleed 01   # the one with the boat
+
+The first line is usually "bleed", which puts a big opening photo beside
+the title.
+
+You do not have to keep story.txt up to date. If you upload a new photo and
+forget to add it, it is shown full width at the end rather than being left out.
+If you delete story.txt, every photo is shown full width in number order.
