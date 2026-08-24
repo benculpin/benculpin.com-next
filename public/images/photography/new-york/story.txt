@@ -1,0 +1,18 @@
+bleed 01        # skyline through glass, the reflection
+full 02         # love yours!
+
+pair 15 17      # brick and ghost sign / traffic light on red
+full 16         # photographing the wall
+
+pair 03 04      # steam pillars / Times Square in shadow
+bleed 05        # the hydrant
+
+pair 06 07      # platform, the Q coming in / the train going out
+full 08         # blueberry pancakes
+
+bleed 09        # the hanging figures
+full 10         # hands on the wall
+pair 11 12      # stairwell down / the record shop
+
+full 13         # Guggenheim, the ramps
+bleed 14        # Guggenheim, looking down

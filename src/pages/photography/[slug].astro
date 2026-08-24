@@ -96,3 +96,12 @@ const followingRows = openingBleed && storyRows ? storyRows.slice(1) : storyRows
   )}
   <Lightbox />
 </Layout>
+
+<style>
+  /* Story and project pages only. The photography landing keeps the look line
+     beside the title (see index.astro) — do not centre it there. */
+  .photo-look {
+    justify-content: center;
+    text-align: center;
+  }
+</style>
