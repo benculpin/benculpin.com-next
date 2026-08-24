@@ -5,6 +5,10 @@ import { collections } from '../../data/photography';
 <Layout title="Photography" active="photography">
   <section class="page-head">
     <h1>Photography</h1>
+    <aside class="photo-look" id="look">
+      <p>These photos are here to look at. Please ask before using them.</p>
+      <a class="photo-look-ask" href="mailto:benculpin@gmail.com?subject=Photography">Ask</a>
+    </aside>
   </section>
   <div class="collection-list photo-index">
     {collections.map((c) => (
@@ -17,8 +21,40 @@ import { collections } from '../../data/photography';
       </a>
     ))}
   </div>
-  <aside class="photo-look" id="look">
-    <p>These photos are here to look at. Please ask before using them.</p>
-    <a class="photo-look-ask" href="mailto:benculpin@gmail.com?subject=Photography">Ask</a>
-  </aside>
 </Layout>
+
+<style>
+  .page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 24px;
+    row-gap: 8px;
+  }
+  .page-head h1 {
+    margin-bottom: 0;
+  }
+  .photo-look {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+    justify-content: flex-end;
+  }
+  .photo-look p {
+    color: var(--tag);
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.45;
+    max-width: 28rem;
+  }
+  @media (max-width: 767px) {
+    .page-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .photo-look {
+      justify-content: flex-start;
+    }
+  }
+</style>
