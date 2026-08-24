@@ -1153,7 +1153,9 @@ p { margin: 0 0 1em; }
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
+  justify-content: center;
   gap: 8px 12px;
+  text-align: center;
 }
 .photo-look p {
   margin: 0;
