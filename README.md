@@ -1,30 +1,66 @@
-# benculpin.com-next
+# benculpin.com
 
-An exploration fork of the personal site. Same pages, copy, and photos — refined so it reads as a current personal site rather than a Webflow export. Notebook is the aggregator of notes and write-ups; photography stays pictures. A series with a write-up is one work listed in both places.
+The live personal site of Ben Culpin — https://www.benculpin.com
 
-This is not the live domain. The refund-safe replica remains https://github.com/benculpin/benculpin.com. Do not attach a custom domain or cut over DNS from this repo.
+Astro 5, static, no CMS. Cloudflare Pages builds `main` and publishes it, so a
+merge to `main` goes live immediately.
 
-## Notes
+> Working on this repo with an AI assistant? Read **[CLAUDE.md](CLAUDE.md)**
+> first. It holds the locked information architecture, the hard rules, and the
+> known live issues.
 
-Exploration fork only. Original replica is benculpin/benculpin.com.
+## Develop
 
-## Develop and build
+```
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # output to dist
+npm run preview
+```
 
-Use the Node scripts in package.json. Output directory is dist.
+A `bun.lock` is committed. `npm install` will produce a `package-lock.json` —
+leave it uncommitted.
 
-## Contact form
+## Pages
 
-The About form currently posts to a hash stub. Wire Formspree in src/pages/about.astro when ready.
+```
+/                     home
+/about                Roots / Frontiers, email link, no contact form
+/notebook             writing
+/notebook/{slug}
+/photography          photo sets
+/photography/{slug}
+/film                 films (/films 301s here)
+/film/{id}
+/podcast              a door to damkind.xyz
+/home                 redirects to /photography
+```
 
-## Known differences vs live
+## Adding a photo set
 
-- Footer Freelance now links to /notebook/freelance (live /words/freelance 404s).
-- Photography heading Saudi Arabia (live has the typo Suadia Arabia).
-- CV Drive link is kept as on live but that file currently 404s.
-- About bio is the live copy, unchanged.
-- Notebook posts include live bodies and local images.
-- Contact form is a stub until Formspree is wired.
+Create a folder under `public/images/photography/` with a `set.txt` and your
+photos. No code changes. The step-by-step, written for the browser rather than
+the command line, is in
+[`public/images/photography/HOW-TO-ADD-A-SET.txt`](public/images/photography/HOW-TO-ADD-A-SET.txt).
 
-## Paths
+## Adding a note
 
-/  /about  /notebook  /notebook/{slug}  /photography  /photography/{slug}  /film  /film/{id}  /home (redirects to /photography)
+A note is a `.md` file in `src/pages/notebook/` using `NoteLayout.astro`. Add it
+to the list in `src/pages/notebook/index.astro` — that order is hand-curated on
+purpose, so put the new note where you want it to appear.
+
+## Publishing
+
+Work on a branch named `preview/<name>` and push it. Cloudflare builds a preview
+at `https://preview-<name>.benculpin-com-next.pages.dev`. Review it there, then
+merge to `main` to go live.
+
+## Related repos
+
+- [`benculpin/benculpin.com`](https://github.com/benculpin/benculpin.com) —
+  refund-safe replica of the old Webflow site. Not the live site; do not attach a
+  domain to it.
+- [`benculpin/damkind.xyz-next`](https://github.com/benculpin/damkind.xyz-next) —
+  the live podcast site at damkind.xyz, also on Cloudflare Pages.
+- [`benculpin/damkind.xyz`](https://github.com/benculpin/damkind.xyz) —
+  refund-safe replica of the old Webflow podcast site.
